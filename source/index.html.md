@@ -6,9 +6,9 @@ language_tabs:
 - php
 
 toc_footers:
-- <a href='https://hosting4devs.com'>Manage servers and web apps easily with hosting4devs.</a>
+- <a href='https://hosting4devs.com'>Manage servers and web apps easily</a>
 - <a href='https://cloud.hosting4devs.com/signup'>Sign Up</a>
-- <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+- <a href='https://github.com/tripit/slate'>Doc Powered by Slate</a>
 
 includes:
 - errors
@@ -56,556 +56,6 @@ try
 </aside>
 
 #Server
-## Get list of active servers.
-```shell
-curl "https://api.hosting4devs.com/v1/server/list" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getActiveServersList();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": [
-        "fi9CvJ-001",
-        "fi9CvJ-002",
-        "fi9CvJ-003",
-        "fi9CvJ-004",
-        "fi9CvJ-005",
-        "fi9CvJ-006",
-        "fi9CvJ-007",
-        "fi9CvJ-008",
-        "fi9CvJ-009",
-        "fi9CvJ-010",
-        "fi9CvJ-011",
-        "fi9CvJ-012",
-        "fi9CvJ-013",
-        "fi9CvJ-014",
-        "fi9CvJ-015",
-        "fi9CvJ-016"
-    ]
-}
-```
-
-Get list of active servers.
-
-### HTTP Request
-
-`GET  /v1/server/list`
-
-
-## Get server spamassassin preferences.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/antispam" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getServerSpamassassinPreferences($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "required_score": "10",
-        "subject_tag": "test-tag"
-    }
-}
-```
-
-Get server spamassassin preferences.
-
-### HTTP Request
-
-`GET  /v1/server/:server/antispam`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-## Set server spamassassin preferences.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/antispam" \
--X PUT \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","tag":"test-tag","score":"10"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->setServerSpamassassinPreferences($server,$tag,$score);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Set server spamassassin preferences.
-
-### HTTP Request
-
-`PUT  /v1/server/:server/antispam`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-tag | true | Tag for antispam preference | string | - | -
-score | true | Score for antispam preference | string | - | -
-## Add new firewall rule.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/firewall/rule" \
--X POST \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","priority":"1","direction":"INPUT","action":"ACCEPT","protocol":"tcp","source":"111.111.111.111","destination":"222.222.222.222","sourcePort":"8001","destinationPort":"8002","replace":"true"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->addFirewallRule($server,$priority,$direction,$action,$protocol,$source,$destination,$sourcePort,$destinationPort,$replace);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Add new firewall rule.
-
-### HTTP Request
-
-`POST  /v1/server/:server/firewall/rule`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-priority | true | Priority | string | - | -
-direction | true | Direction | enum | ["INPUT","OUTPUT"] | INPUT
-action | true | Action | enum | ["ACCEPT","DROP"] | ACCEPT
-protocol | true | Protocol | enum | ["tcp","udp","udplite","icmp","icmpv6","esp","ah","sctp","mh","all"] | tcp
-source | true | Source IP or Subnet | string | - | -
-destination | true | Destination IP or Subnet | string | - | -
-sourcePort | true | Source port | string | - | all
-destinationPort | true | Destination port | string | - | all
-replace | true | Replace | boolean | [true,false] | 1
-## Block IP.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/firewall/block/:ip" \
--X PUT \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","ip":"123.123.123.123"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->firewallDisallowIP($server,$ip);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Block IP.
-
-### HTTP Request
-
-`PUT  /v1/server/:server/firewall/block/:ip`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-ip | true | Source IP or subnet | string | - | -
-
-## Get firewall rules.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/firewall/rules" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getFirewallRules($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": []
-}
-```
-
-Get firewall rules.
-
-### HTTP Request
-
-`GET  /v1/server/:server/firewall/rules`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-## Remove firewall rule.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/firewall/rule" \
--X DELETE \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","priority":"1","direction":"INPUT"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->removeFirewallRule($server,$priority,$direction);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Remove firewall rule.
-
-### HTTP Request
-
-`DELETE  /v1/server/:server/firewall/rule`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-priority | true | Priority | string | - | -
-direction | true | Direction | enum | ["INPUT","OUTPUT"] | INPUT
-## Unblock IP.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/firewall/block/:ip" \
--X DELETE \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","ip":"123.123.123.123"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->firewallRemoveDisallowedIP($server,$ip);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Unblock IP.
-
-### HTTP Request
-
-`DELETE  /v1/server/:server/firewall/block/:ip`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-ip | true | Source IP or subnet | string | - | -
-
-## Get installed packages.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/packages" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getInstalledPackages($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": [
-        {
-            "package": "php7-fpm",
-            "version": "7.0",
-            "installed": "2016-04-26T20:23:12+0000"
-        },
-        {
-            "package": "ftp",
-            "version": "3.0.2",
-            "installed": "2016-04-26T20:24:33+0000"
-        },
-        {
-            "package": "ssh",
-            "version": "6.6p1",
-            "installed": "2016-04-26T20:24:33+0000"
-        }
-    ]
-}
-```
-
-Get installed packages.
-
-### HTTP Request
-
-`GET  /v1/server/:server/packages`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-## Get detailed server settings.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/settings" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"fi9CvJ-016"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getDetailedServerSettings($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "cpu": {
-            "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
-            "nproc": "1"
-        },
-        "distro": {
-            "id": "Ubuntu",
-            "release": "14.04",
-            "codename": "trusty",
-            "description": "Ubuntu 14.04.2 LTS"
-        },
-        "kernel_release": "3.13.0-46-generic",
-        "timezone": "Etc\/UTC",
-        "date": "2016-04-28T21:10:25+0000",
-        "memory": {
-            "total": "501756",
-            "used": "375028",
-            "free": "126728",
-            "shared": "20988",
-            "buffers": "8832",
-            "cached": "127636",
-            "unit": "KB"
-        }
-    }
-}
-```
-
-Get detailed server settings.
-
-### HTTP Request
-
-`GET  /v1/server/:server/settings`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-## Get hostings.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hostings" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getHostings($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "test-domain.com": {
-            "domain": "test-domain.com",
-            "status": "enable",
-            "server": "apache",
-            "processManager": "php-5.6",
-            "created": "2016-04-05T23:22:50+0000",
-            "modified": "2016-04-05T23:22:50+0000"
-        }
-    }
-}
-```
-
-Get hostings.
-
-### HTTP Request
-
-`GET  /v1/server/:server/hostings`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-## Get detailed hostings info.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hostings-info" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getDetailedHostingsInfo($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "test-domain.com": {
-            "domain": "test-domain.com",
-            "status": "enable",
-            "alias": "test alias",
-            "ip": "*",
-            "documentRoot": "\/home\/test-domain.com\/htdocs",
-            "description": null,
-            "logDir": "\/home\/test-domain.com\/logs",
-            "server": "apache",
-            "processManager": "php-5.6",
-            "processManagerOptions": [],
-            "sslEnable": "disable",
-            "mailEnable": "enable",
-            "ftpEnabled": "enable",
-            "sshEnabled": "enable",
-            "sshAuthMode": "onlyPublicKey",
-            "quota": {
-                "active": false,
-                "soft": 0,
-                "hard": 0,
-                "unit": "KB"
-            },
-            "created": "2016-04-05T23:22:50+0000",
-            "modified": "2016-04-05T23:22:50+0000",
-            "systemUser": {
-                "username": "test-domaincom",
-                "homeDir": "\/home\/test-domain.com"
-            }
-        }
-    }
-}
-```
-
-Get detailed hostings info.
-
-### HTTP Request
-
-`GET  /v1/server/:server/hostings-info`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
 ## Get detailed server info.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/info" \
@@ -946,45 +396,6 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
 
-## Get server time information.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/time" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getServerTimeInformation($server);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "timezone": "Europe\/Paris",
-        "date": "2016-04-28T22:37:21+0200"
-    }
-}
-```
-
-Get server time information.
-
-### HTTP Request
-
-`GET  /v1/server/:server/time`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
 ## Get server uptime.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/uptime" \
@@ -1021,6 +432,98 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
 
+## Get service information.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/service/:service" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","service":"ftp"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getServiceInformation($server,$service);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "isRunning": true,
+        "isEnabled": true
+    }
+}
+```
+
+Get service information.
+
+### HTTP Request
+
+`GET  /v1/server/:server/service/:service`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+service | true | Service name | string | - | -
+
+## Get installed packages.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/packages" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-012"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getInstalledPackages($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": [
+        {
+            "package": "php7-fpm",
+            "version": "7.0",
+            "installed": "2016-04-26T20:23:12+0000"
+        },
+        {
+            "package": "ftp",
+            "version": "3.0.2",
+            "installed": "2016-04-26T20:24:33+0000"
+        },
+        {
+            "package": "ssh",
+            "version": "6.6p1",
+            "installed": "2016-04-26T20:24:33+0000"
+        }
+    ]
+}
+```
+
+Get installed packages.
+
+### HTTP Request
+
+`GET  /v1/server/:server/packages`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
 ## Get MySQL version.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/mysql/version" \
@@ -1050,6 +553,198 @@ Get MySQL version.
 ### HTTP Request
 
 `GET  /v1/server/:server/mysql/version`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+## Get server spamassassin preferences.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/antispam" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getServerSpamassassinPreferences($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "required_score": "10",
+        "subject_tag": "test-tag"
+    }
+}
+```
+
+Get server spamassassin preferences.
+
+### HTTP Request
+
+`GET  /v1/server/:server/antispam`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+## Set server spamassassin preferences.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/antispam" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","tag":"test-tag","score":"10"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->setServerSpamassassinPreferences($server,$tag,$score);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Set server spamassassin preferences.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/antispam`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+tag | true | Tag for antispam preference | string | - | -
+score | true | Score for antispam preference | string | - | -
+## Get hostings.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hostings" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getHostings($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "test-domain.com": {
+            "domain": "test-domain.com",
+            "status": "enable",
+            "server": "apache",
+            "processManager": "php-5.6",
+            "created": "2016-04-05T23:22:50+0000",
+            "modified": "2016-04-05T23:22:50+0000"
+        }
+    }
+}
+```
+
+Get hostings.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hostings`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+## Get detailed hostings info.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hostings-info" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getDetailedHostingsInfo($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "test-domain.com": {
+            "domain": "test-domain.com",
+            "status": "enable",
+            "alias": "test alias",
+            "ip": "*",
+            "documentRoot": "\/home\/test-domain.com\/htdocs",
+            "description": null,
+            "logDir": "\/home\/test-domain.com\/logs",
+            "server": "apache",
+            "processManager": "php-5.6",
+            "processManagerOptions": [],
+            "sslEnable": "disable",
+            "mailEnable": "enable",
+            "ftpEnabled": "enable",
+            "sshEnabled": "enable",
+            "sshAuthMode": "onlyPublicKey",
+            "quota": {
+                "active": false,
+                "soft": 0,
+                "hard": 0,
+                "unit": "KB"
+            },
+            "created": "2016-04-05T23:22:50+0000",
+            "modified": "2016-04-05T23:22:50+0000",
+            "systemUser": {
+                "username": "test-domaincom",
+                "homeDir": "\/home\/test-domain.com"
+            }
+        }
+    }
+}
+```
+
+Get detailed hostings info.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hostings-info`
 
 ### URL parameters
 
@@ -1098,48 +793,342 @@ server | true | Server API ID | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 password | true | Password | string | - | -
-## Manage server service.
+## Add new firewall rule.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/service/:service/command" \
--X PUT \
+curl "https://api.hosting4devs.com/v1/server/:server/firewall/rule" \
+-X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012","service":"vsftpd","action":"stop"}'
+-d '{"server":"lnqlqx-004","priority":"1","direction":"INPUT","action":"ACCEPT","protocol":"tcp","source":"111.111.111.111","destination":"222.222.222.222","sourcePort":"8001","destinationPort":"8002","replace":"true"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->manageServerService($server,$service,$action);
+$response = $client->addFirewallRule($server,$priority,$direction,$action,$protocol,$source,$destination,$sourcePort,$destinationPort,$replace);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "code": 21604,
-    "message": "Service \"vsftpd\" is disabled!",
-    "data": []
+    "code": 10000,
+    "message": "Success!",
+    "data": true
 }
 ```
 
-Manage server service.
+Add new firewall rule.
 
 ### HTTP Request
 
-`PUT  /v1/server/:server/service/:service/command`
+`POST  /v1/server/:server/firewall/rule`
 
 ### URL parameters
 
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
-service | true | Service name | string | - | -
 
 ### Body parameters
 
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
-action | true | Action | enum | ["start","stop","restart","reload"] | start
+priority | true | Priority | string | - | -
+direction | true | Direction | enum | ["INPUT","OUTPUT"] | INPUT
+action | true | Action | enum | ["ACCEPT","DROP"] | ACCEPT
+protocol | true | Protocol | enum | ["tcp","udp","udplite","icmp","icmpv6","esp","ah","sctp","mh","all"] | tcp
+source | true | Source IP or Subnet | string | - | -
+destination | true | Destination IP or Subnet | string | - | -
+sourcePort | true | Source port | string | - | all
+destinationPort | true | Destination port | string | - | all
+replace | true | Replace | boolean | [true,false] | 1
+## Get firewall rules.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/firewall/rules" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-012"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getFirewallRules($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": []
+}
+```
+
+Get firewall rules.
+
+### HTTP Request
+
+`GET  /v1/server/:server/firewall/rules`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+## Remove firewall rule.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/firewall/rule" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","priority":"1","direction":"INPUT"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->removeFirewallRule($server,$priority,$direction);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Remove firewall rule.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/firewall/rule`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+priority | true | Priority | string | - | -
+direction | true | Direction | enum | ["INPUT","OUTPUT"] | INPUT
+## Block IP.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/firewall/block/:ip" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","ip":"123.123.123.123"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->firewallDisallowIP($server,$ip);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Block IP.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/firewall/block/:ip`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+ip | true | Source IP or subnet | string | - | -
+
+## Unblock IP.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/firewall/block/:ip" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","ip":"123.123.123.123"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->firewallRemoveDisallowedIP($server,$ip);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Unblock IP.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/firewall/block/:ip`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+ip | true | Source IP or subnet | string | - | -
+
+## Get server time information.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/time" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-012"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getServerTimeInformation($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "timezone": "Europe\/Paris",
+        "date": "2016-04-28T22:37:21+0200"
+    }
+}
+```
+
+Get server time information.
+
+### HTTP Request
+
+`GET  /v1/server/:server/time`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+## Set server timezone.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/time/timezone" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","timezone":"timezone"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->setServerTimezone($server,$timezone);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Set server timezone.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/time/timezone`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+timezone | true | Timezone | string | - | -
+## Get detailed server settings.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/settings" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"fi9CvJ-016"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getDetailedServerSettings($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "cpu": {
+            "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
+            "nproc": "1"
+        },
+        "distro": {
+            "id": "Ubuntu",
+            "release": "14.04",
+            "codename": "trusty",
+            "description": "Ubuntu 14.04.2 LTS"
+        },
+        "kernel_release": "3.13.0-46-generic",
+        "timezone": "Etc\/UTC",
+        "date": "2016-04-28T21:10:25+0000",
+        "memory": {
+            "total": "501756",
+            "used": "375028",
+            "free": "126728",
+            "shared": "20988",
+            "buffers": "8832",
+            "cached": "127636",
+            "unit": "KB"
+        }
+    }
+}
+```
+
+Get detailed server settings.
+
+### HTTP Request
+
+`GET  /v1/server/:server/settings`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
 ## Manage server service status.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/service/:service/status" \
@@ -1182,38 +1171,35 @@ service | true | Service name | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 status | true | Status | enum | ["enable","disable"] | enable
-## Get service information.
+## Manage server service.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/service/:service" \
--X GET \
+curl "https://api.hosting4devs.com/v1/server/:server/service/:service/command" \
+-X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","service":"ftp"}'
+-d '{"server":"lnqlqx-012","service":"vsftpd","action":"stop"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->getServiceInformation($server,$service);
+$response = $client->manageServerService($server,$service,$action);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "isRunning": true,
-        "isEnabled": true
-    }
+    "code": 21604,
+    "message": "Service \"vsftpd\" is disabled!",
+    "data": []
 }
 ```
 
-Get service information.
+Manage server service.
 
 ### HTTP Request
 
-`GET  /v1/server/:server/service/:service`
+`PUT  /v1/server/:server/service/:service/command`
 
 ### URL parameters
 
@@ -1222,43 +1208,57 @@ Parameter | Required | Description | Type | Values | Default value
 server | true | Server API ID | string | - | -
 service | true | Service name | string | - | -
 
-## Set server timezone.
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+action | true | Action | enum | ["start","stop","restart","reload"] | start
+## Get list of active servers.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/time/timezone" \
--X PUT \
+curl "https://api.hosting4devs.com/v1/server/list" \
+-X GET \
 -u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"server","timezone":"timezone"}'
-```
+-H "Content-Type: application/json"```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->setServerTimezone($server,$timezone);
+$response = $client->getActiveServersList();
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": [
+        "fi9CvJ-001",
+        "fi9CvJ-002",
+        "fi9CvJ-003",
+        "fi9CvJ-004",
+        "fi9CvJ-005",
+        "fi9CvJ-006",
+        "fi9CvJ-007",
+        "fi9CvJ-008",
+        "fi9CvJ-009",
+        "fi9CvJ-010",
+        "fi9CvJ-011",
+        "fi9CvJ-012",
+        "fi9CvJ-013",
+        "fi9CvJ-014",
+        "fi9CvJ-015",
+        "fi9CvJ-016"
+    ]
+}
 ```
 
-Set server timezone.
+Get list of active servers.
 
 ### HTTP Request
 
-`PUT  /v1/server/:server/time/timezone`
+`GET  /v1/server/list`
 
-### URL parameters
 
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-timezone | true | Timezone | string | - | -
 ## Reboot server.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/reboot" \
@@ -1366,90 +1366,6 @@ server | true | Server API ID | string | - | -
 token | true | Snippet token | string | - | -
 
 #Hosting
-## Change hosting password.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/pass" \
--X PUT \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","password":"qweasd123"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->setHostingPassword($server,$domain,$password);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Change hosting password.
-
-### HTTP Request
-
-`PUT  /v1/server/:server/hosting/:domain/pass`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-password | true | Password | string | - | -
-## Change hosting process manager.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/process-manager" \
--X PATCH \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","processManager":"php-5.6"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->changeHostingProcessManager($server,$domain,$processManager);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Change hosting process manager.
-
-### HTTP Request
-
-`PATCH  /v1/server/:server/hosting/:domain/process-manager`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-processManager | true | Process manager which handles the requests | enum | ["php-5.5","php-5.6","php-7"] | php-5.5
 ## Create new hosting.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain" \
@@ -1495,92 +1411,18 @@ alias | false | Alias | string | - |
 mailEnable | true | Enable mail service | boolean | [true,false] | 1
 processManager | true | Process manager which handles requests | enum | ["php-5.5","php-5.6","php-7"] | php-5.5
 password | false | Password | string | - | 
-## Delete a hosting.
+## Change hosting password.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain" \
--X DELETE \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->deleteHosting($server,$domain);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Delete a hosting.
-
-### HTTP Request
-
-`DELETE  /v1/server/:server/hosting/:domain`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-## Get hosting FTP status.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ftp/status" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getHostingFTPStatus($server,$domain);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "enable"
-}
-```
-
-Get hosting FTP status.
-
-### HTTP Request
-
-`GET  /v1/server/:server/hosting/:domain/ftp/status`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-## Set hosting FTP status.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ftp/status" \
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/pass" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","status":"enable"}'
+-d '{"server":"lnqlqx-004","domain":"test-000.com","password":"qweasd123"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->setHostingFTPStatus($server,$domain,$status);
+$response = $client->setHostingPassword($server,$domain,$password);
 ```
 
 > The above command returns JSON structured like this:
@@ -1593,11 +1435,11 @@ $response = $client->setHostingFTPStatus($server,$domain,$status);
 }
 ```
 
-Set hosting FTP status.
+Change hosting password.
 
 ### HTTP Request
 
-`PUT  /v1/server/:server/hosting/:domain/ftp/status`
+`PUT  /v1/server/:server/hosting/:domain/pass`
 
 ### URL parameters
 
@@ -1610,7 +1452,7 @@ domain | true | Hostname | string | - | -
 
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
-status | true | Status | enum | ["enable","disable"] | enable
+password | true | Password | string | - | -
 ## Get hosting total disk usage.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/info/disk-usage" \
@@ -1890,18 +1732,55 @@ Parameter | Required | Description | Type | Values | Default value
 server | true | Server API ID | string | - | -
 domain | true | Hostname | string | - | -
 
-## New mailbox alias.
+## Get hosting FTP status.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias" \
--X POST \
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ftp/status" \
+-X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","goto":"test@mail.com"}'
+-d '{"server":"lnqlqx-004","domain":"test-000.com"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->createMailboxAlias($server,$domain,$username,$goto);
+$response = $client->getHostingFTPStatus($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": "enable"
+}
+```
+
+Get hosting FTP status.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/ftp/status`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Set hosting FTP status.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ftp/status" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","status":"enable"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->setHostingFTPStatus($server,$domain,$status);
 ```
 
 > The above command returns JSON structured like this:
@@ -1914,11 +1793,11 @@ $response = $client->createMailboxAlias($server,$domain,$username,$goto);
 }
 ```
 
-New mailbox alias.
+Set hosting FTP status.
 
 ### HTTP Request
 
-`POST  /v1/server/:server/hosting/:domain/mailbox/:username/alias`
+`PUT  /v1/server/:server/hosting/:domain/ftp/status`
 
 ### URL parameters
 
@@ -1926,63 +1805,24 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
 domain | true | Hostname | string | - | -
-username | true | User name | string | - | -
 
 ### Body parameters
 
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
-goto | true | Target email address | string | - | -
-## Delete a mailbox alias.
+status | true | Status | enum | ["enable","disable"] | enable
+## Get hosting mail service detailed information.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias" \
--X DELETE \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->deleteMailboxAlias($server,$domain,$username);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Delete a mailbox alias.
-
-### HTTP Request
-
-`DELETE  /v1/server/:server/hosting/:domain/mailbox/:username/alias`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-username | true | User name | string | - | -
-
-## Get mailbox alias info.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias" \
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+-d '{"server":"lnqlqx-004","domain":"test-000.com"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->getMailboxAliasInfo($server,$domain,$username);
+$response = $client->getHostingMailServiceDetailedInformation($server,$domain);
 ```
 
 > The above command returns JSON structured like this:
@@ -1992,20 +1832,35 @@ $response = $client->getMailboxAliasInfo($server,$domain,$username);
     "code": 10000,
     "message": "Success!",
     "data": {
-        "address": "test_user@test-000.com",
-        "goto": "test@mail.com",
         "status": "enable",
-        "created": "2016-04-22T16:57:28+0000",
-        "modified": "2016-04-22T16:57:28+0000"
+        "alias": {
+            "max": 0,
+            "count": 0,
+            "items": []
+        },
+        "mailbox": {
+            "max": 0,
+            "count": 0,
+            "items": []
+        },
+        "mailDir": "\/home\/test-000.com\/Maildir",
+        "created": "2016-04-22T16:57:17+0000",
+        "modified": "2016-04-22T16:57:22+0000",
+        "antispam": {
+            "status": "enabled",
+            "required_score": "10",
+            "subject_tag": "test-tag",
+            "list": []
+        }
     }
 }
 ```
 
-Get mailbox alias info.
+Get hosting mail service detailed information.
 
 ### HTTP Request
 
-`GET  /v1/server/:server/hosting/:domain/mailbox/:username/alias`
+`GET  /v1/server/:server/hosting/:domain/mail`
 
 ### URL parameters
 
@@ -2013,51 +1868,7 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
 domain | true | Hostname | string | - | -
-username | true | User name | string | - | -
 
-## Set mailbox alias status.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias/status" \
--X PUT \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","status":"enable"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->setMailboxAliasStatus($server,$domain,$username,$status);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Set mailbox alias status.
-
-### HTTP Request
-
-`PUT  /v1/server/:server/hosting/:domain/mailbox/:username/alias/status`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-username | true | User name | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-status | true | Status | enum | ["enable","disable"] | enable
 ## Add a domain to black list.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antispam/black-list" \
@@ -2348,49 +2159,6 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 score | true | Score for antispam preference | string | - | -
 tag | true | Tag for antispam preference | string | - | -
-## Change mailbox password.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/pass" \
--X PUT \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","password":"qweasd123"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->setMailboxPassword($server,$domain,$username,$password);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Change mailbox password.
-
-### HTTP Request
-
-`PUT  /v1/server/:server/hosting/:domain/mailbox/:username/pass`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-username | true | User name | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-password | true | Password | string | - | -
 ## Create new mailbox.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username" \
@@ -2437,44 +2205,6 @@ password | true | Password | string | - | -
 name | true | Account owner name | string | - | -
 altEmail | true | Alternative email eddress | string | - | -
 quota | true | Quota in MB (0 = unlimited) | string | - | -
-## Delete a mailbox.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username" \
--X DELETE \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->deleteMailbox($server,$domain,$username);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Delete a mailbox.
-
-### HTTP Request
-
-`DELETE  /v1/server/:server/hosting/:domain/mailbox/:username`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-username | true | User name | string | - | -
-
 ## Get mailbox info.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username" \
@@ -2525,6 +2255,49 @@ server | true | Server API ID | string | - | -
 domain | true | Hostname | string | - | -
 username | true | User name | string | - | -
 
+## Change mailbox password.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/pass" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","password":"qweasd123"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->setMailboxPassword($server,$domain,$username,$password);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Change mailbox password.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/hosting/:domain/mailbox/:username/pass`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+username | true | User name | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+password | true | Password | string | - | -
 ## Set mailbox quota.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/quota" \
@@ -2611,6 +2384,212 @@ username | true | User name | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 status | true | Status | enum | ["enable","disable"] | enable
+## New mailbox alias.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","goto":"test@mail.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->createMailboxAlias($server,$domain,$username,$goto);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+New mailbox alias.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/mailbox/:username/alias`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+username | true | User name | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+goto | true | Target email address | string | - | -
+## Get mailbox alias info.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getMailboxAliasInfo($server,$domain,$username);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "address": "test_user@test-000.com",
+        "goto": "test@mail.com",
+        "status": "enable",
+        "created": "2016-04-22T16:57:28+0000",
+        "modified": "2016-04-22T16:57:28+0000"
+    }
+}
+```
+
+Get mailbox alias info.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/mailbox/:username/alias`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+username | true | User name | string | - | -
+
+## Set mailbox alias status.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias/status" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","status":"enable"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->setMailboxAliasStatus($server,$domain,$username,$status);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Set mailbox alias status.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/hosting/:domain/mailbox/:username/alias/status`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+username | true | User name | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+status | true | Status | enum | ["enable","disable"] | enable
+## Delete a mailbox alias.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username/alias" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->deleteMailboxAlias($server,$domain,$username);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Delete a mailbox alias.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/hosting/:domain/mailbox/:username/alias`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+username | true | User name | string | - | -
+
+## Delete a mailbox.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:username" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->deleteMailbox($server,$domain,$username);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Delete a mailbox.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/hosting/:domain/mailbox/:username`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+username | true | User name | string | - | -
+
 ## Get mailboxes aliases.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/aliases" \
@@ -2640,64 +2619,6 @@ Get mailboxes aliases.
 ### HTTP Request
 
 `GET  /v1/server/:server/hosting/:domain/mail/aliases`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-## Get hosting mail service detailed information.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail" \
--X GET \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->getHostingMailServiceDetailedInformation($server,$domain);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "status": "enable",
-        "alias": {
-            "max": 0,
-            "count": 0,
-            "items": []
-        },
-        "mailbox": {
-            "max": 0,
-            "count": 0,
-            "items": []
-        },
-        "mailDir": "\/home\/test-000.com\/Maildir",
-        "created": "2016-04-22T16:57:17+0000",
-        "modified": "2016-04-22T16:57:22+0000",
-        "antispam": {
-            "status": "enabled",
-            "required_score": "10",
-            "subject_tag": "test-tag",
-            "list": []
-        }
-    }
-}
-```
-
-Get hosting mail service detailed information.
-
-### HTTP Request
-
-`GET  /v1/server/:server/hosting/:domain/mail`
 
 ### URL parameters
 
@@ -2822,138 +2743,6 @@ domain | true | Hostname | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 status | true | Status | enum | ["enable","disable"] | enable
-## Create new MySQL database and user.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db-and-user" \
--X POST \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database","dbDescription":"database description","username":"test_user_ddbb","password":"qweasd123","userDescription":"user description"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->createMySQLDatabaseAndUser($server,$domain,$database,$dbDescription,$username,$password,$userDescription);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Create new MySQL database and user.
-
-### HTTP Request
-
-`POST  /v1/server/:server/hosting/:domain/mysql/db-and-user`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-database | true | Database name | string | - | -
-dbDescription | true | Description | string | - | -
-username | true | User name | string | - | -
-password | true | Password | string | - | -
-userDescription | true | Description | string | - | -
-## Create new MySQL database and assign it to an existing user.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db" \
--X POST \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database","username":"test_user","dbDescription":"database description"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->createMySQLDatabaseAndAssignItToAnExistingUser($server,$domain,$database,$username,$dbDescription);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Create new MySQL database and assign it to an existing user.
-
-### HTTP Request
-
-`POST  /v1/server/:server/hosting/:domain/mysql/db`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-database | true | Database name | string | - | -
-username | true | User name | string | - | -
-dbDescription | true | Description | string | - | -
-## Delete a MySQL database.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db" \
--X DELETE \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->deleteMySQLDatabase($server,$domain,$database);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
-```
-
-Delete a MySQL database.
-
-### HTTP Request
-
-`DELETE  /v1/server/:server/hosting/:domain/mysql/db`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-domain | true | Hostname | string | - | -
-
-### Body parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-database | true | Database name | string | - | -
 ## Get hosting MySQL detailed info.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql" \
@@ -3090,6 +2879,92 @@ username | true | User name | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 password | true | Password | string | - | -
+## Create new MySQL database and assign it to an existing user.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database","username":"test_user","dbDescription":"database description"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->createMySQLDatabaseAndAssignItToAnExistingUser($server,$domain,$database,$username,$dbDescription);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Create new MySQL database and assign it to an existing user.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/mysql/db`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+database | true | Database name | string | - | -
+username | true | User name | string | - | -
+dbDescription | true | Description | string | - | -
+## Delete a MySQL database.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->deleteMySQLDatabase($server,$domain,$database);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Delete a MySQL database.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/hosting/:domain/mysql/db`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+database | true | Database name | string | - | -
 ## Delete a MySQL user.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/user/:username" \
@@ -3128,6 +3003,52 @@ server | true | Server API ID | string | - | -
 domain | true | Hostname | string | - | -
 username | true | User name | string | - | -
 
+## Create new MySQL database and user.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db-and-user" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database","dbDescription":"database description","username":"test_user_ddbb","password":"qweasd123","userDescription":"user description"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->createMySQLDatabaseAndUser($server,$domain,$database,$dbDescription,$username,$password,$userDescription);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Create new MySQL database and user.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/mysql/db-and-user`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+database | true | Database name | string | - | -
+dbDescription | true | Description | string | - | -
+username | true | User name | string | - | -
+password | true | Password | string | - | -
+userDescription | true | Description | string | - | -
 ## Set hosting quota.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/quota" \
@@ -3637,6 +3558,85 @@ domain | true | Hostname | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 status | true | Status | enum | ["enable","disable"] | enable
+## Change hosting process manager.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/process-manager" \
+-X PATCH \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com","processManager":"php-5.6"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->changeHostingProcessManager($server,$domain,$processManager);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Change hosting process manager.
+
+### HTTP Request
+
+`PATCH  /v1/server/:server/hosting/:domain/process-manager`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+processManager | true | Process manager which handles the requests | enum | ["php-5.5","php-5.6","php-7"] | php-5.5
+## Delete a hosting.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->deleteHosting($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Delete a hosting.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/hosting/:domain`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
 #Recipes
 ## Add new snippet.
 ```shell
