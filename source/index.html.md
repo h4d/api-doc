@@ -62,7 +62,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/info" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-001"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -78,38 +78,29 @@ $response = $client->getDetailedServerInfo($server);
     "message": "Success!",
     "data": {
         "metrics": {
-            "uptime": "39667449.94",
+            "uptime": "7982867.14",
             "load_avg": {
-                "last": 1.13,
-                "5min": 1.1,
-                "15min": 1.12,
-                "nproc": "4"
+                "last": 0,
+                "5min": 0,
+                "15min": 0,
+                "nproc": "1"
             },
             "memory_usage": {
-                "total": "4021048",
-                "used": "3772616",
-                "free": "248432",
-                "shared": "21048",
-                "buffers": "160512",
-                "cached": "2895456",
+                "total": "500388",
+                "used": "480292",
+                "free": "20096",
+                "shared": "46564",
+                "buffers": "34748",
+                "cached": "144768",
                 "unit": "KB"
             },
             "filesystems_usage": {
                 "\/": {
-                    "total": "19557",
-                    "used": "7307",
-                    "free": "11235",
-                    "percentage_of_use": "40",
-                    "filesystem": "\/dev\/root",
-                    "type": "ext4",
-                    "unit": "MB"
-                },
-                "\/home": {
-                    "total": "1857474",
-                    "used": "88420",
-                    "free": "1674677",
-                    "percentage_of_use": "6",
-                    "filesystem": "\/dev\/sda3",
+                    "total": "20030",
+                    "used": "4905",
+                    "free": "14095",
+                    "percentage_of_use": "26",
+                    "filesystem": "\/dev\/vda1",
                     "type": "ext4",
                     "unit": "MB"
                 }
@@ -117,36 +108,161 @@ $response = $client->getDetailedServerInfo($server);
         },
         "network": {
             "eth0": {
-                "IPv4": "37.187.126.170",
-                "IPv6": "fe80::222:4dff:feae:339f"
+                "IPv4": "10.14.0.7",
+                "IPv6": "fe80::601:18ff:fe89:9f01"
             }
         },
         "services": {
-            "count": 1,
+            "count": 11,
             "items": {
-                "metrics": {
+                "vsftpd": {
+                    "serviceName": "vsftpd",
+                    "publicName": "ftp",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "ssh": {
+                    "serviceName": "ssh",
+                    "publicName": "ssh",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "spamassassin": {
+                    "serviceName": "spamassassin",
+                    "publicName": "antispam",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "postfix": {
+                    "serviceName": "postfix",
+                    "publicName": "postfix",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "dovecot": {
+                    "serviceName": "dovecot",
+                    "publicName": "dovecot",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "mysql": {
+                    "serviceName": "mysql",
+                    "publicName": "mysql",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "apache2": {
+                    "serviceName": "apache2",
+                    "publicName": "apache",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "h4d-metrics": {
                     "serviceName": "h4d-metrics",
                     "publicName": "metrics",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "h4d-php5.5-fpm": {
+                    "serviceName": "h4d-php5.5-fpm",
+                    "publicName": "php5.5-fpm",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "h4d-php5.6-fpm": {
+                    "serviceName": "h4d-php5.6-fpm",
+                    "publicName": "php5.6-fpm",
+                    "isEnabled": true,
+                    "isRunning": true
+                },
+                "h4d-php7-fpm": {
+                    "serviceName": "h4d-php7-fpm",
+                    "publicName": "php7-fpm",
                     "isEnabled": true,
                     "isRunning": true
                 }
             }
         },
         "packages": {
-            "count": 0,
-            "items": []
+            "count": 10,
+            "items": [
+                {
+                    "package": "apache",
+                    "version": "2.4.16",
+                    "installed": "2016-12-23T09:47:14+0000"
+                },
+                {
+                    "package": "mysql",
+                    "version": "5.5.43",
+                    "installed": "2016-12-23T10:02:21+0000"
+                },
+                {
+                    "package": "php7-fpm",
+                    "version": "7.0",
+                    "installed": "2016-12-23T10:03:06+0000"
+                },
+                {
+                    "package": "php5.6-fpm",
+                    "version": "5.6",
+                    "installed": "2016-12-23T10:09:09+0000"
+                },
+                {
+                    "package": "php5.5-fpm",
+                    "version": "5.5",
+                    "installed": "2016-12-23T10:09:47+0000"
+                },
+                {
+                    "package": "ftp",
+                    "version": "3.0.2",
+                    "installed": "2016-12-23T10:18:59+0000"
+                },
+                {
+                    "package": "ssh",
+                    "version": "6.6p1",
+                    "installed": "2016-12-23T10:18:59+0000"
+                },
+                {
+                    "package": "postfix",
+                    "version": "2.11.0",
+                    "installed": "2017-01-17T08:22:10+0000"
+                },
+                {
+                    "package": "dovecot",
+                    "version": "2.2.9",
+                    "installed": "2017-01-17T08:22:10+0000"
+                },
+                {
+                    "package": "spamassassin",
+                    "version": "3.4.0",
+                    "installed": "2017-01-17T08:22:10+0000"
+                }
+            ]
         },
         "time": {
             "timezone": "Etc\/UTC",
-            "date": "2016-04-30T08:59:16+0000"
+            "date": "2017-08-03T16:58:13+0000"
         },
         "hostings": {
-            "count": "0"
+            "count": "7"
         },
         "antispam": {
-            "config": [],
-            "enable": false
-        }
+            "config": {
+                "required_score": "10.0",
+                "subject_tag": "[SPAM]"
+            },
+            "enable": true
+        },
+        "cpu": {
+            "model": "Intel(R) Xeon(R) CPU E5-2630L 0 @ 2.00GHz",
+            "nproc": "1"
+        },
+        "distro": {
+            "id": "Ubuntu",
+            "release": "14.04",
+            "codename": "trusty",
+            "description": "Ubuntu 14.04.5 LTS"
+        },
+        "kernel_release": "4.4.0-53-generic"
     }
 }
 ```
@@ -169,7 +285,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/ips" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -180,16 +296,7 @@ $response = $client->getDetailedIPsInfo($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "eth0": {
-            "IPv4": "92.222.70.176",
-            "IPv6": "fe80::f816:3eff:fefb:10a"
-        }
-    }
-}
+null
 ```
 
 Get detailed IPs info.
@@ -210,7 +317,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/disk-usage" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -221,21 +328,7 @@ $response = $client->getServerDiskUsage($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "\/": {
-            "total": "10047",
-            "used": "2289",
-            "free": "7319",
-            "percentage_of_use": "24",
-            "filesystem": "\/dev\/vda1",
-            "type": "ext4",
-            "unit": "MB"
-        }
-    }
-}
+null
 ```
 
 Get server disk usage.
@@ -256,7 +349,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/load-average" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-011"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -267,16 +360,7 @@ $response = $client->getServerLoadAverage($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "last": 0,
-        "5min": 0.03,
-        "15min": 0.09,
-        "nproc": "1"
-    }
-}
+null
 ```
 
 Get server load average.
@@ -297,7 +381,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/memory" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -308,19 +392,7 @@ $response = $client->getServerMemoryUsage($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "total": "2000908",
-        "used": "976128",
-        "free": "1024780",
-        "shared": "20720",
-        "buffers": "87820",
-        "cached": "544648",
-        "unit": "KB"
-    }
-}
+null
 ```
 
 Get server memory usage.
@@ -341,7 +413,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/services-status" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -368,9 +440,27 @@ $response = $client->getServerServicesDetailedInfo($server);
             "isEnabled": true,
             "isRunning": true
         },
+        "mysql": {
+            "serviceName": "mysql",
+            "publicName": "mysql",
+            "isEnabled": true,
+            "isRunning": true
+        },
+        "apache2": {
+            "serviceName": "apache2",
+            "publicName": "apache",
+            "isEnabled": true,
+            "isRunning": true
+        },
         "h4d-metrics": {
             "serviceName": "h4d-metrics",
             "publicName": "metrics",
+            "isEnabled": true,
+            "isRunning": true
+        },
+        "h4d-php5.6-fpm": {
+            "serviceName": "h4d-php5.6-fpm",
+            "publicName": "php5.6-fpm",
             "isEnabled": true,
             "isRunning": true
         },
@@ -402,7 +492,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/uptime" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -413,11 +503,7 @@ $response = $client->getServerUptime($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "1121373.70"
-}
+null
 ```
 
 Get server uptime.
@@ -438,7 +524,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/service/:service" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","service":"ftp"}'
+-d '{"server":"server","service":"service"}'
 ```
 
 ```php
@@ -449,14 +535,7 @@ $response = $client->getServiceInformation($server,$service);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "isRunning": true,
-        "isEnabled": true
-    }
-}
+null
 ```
 
 Get service information.
@@ -478,7 +557,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/packages" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -494,19 +573,54 @@ $response = $client->getInstalledPackages($server);
     "message": "Success!",
     "data": [
         {
+            "package": "apache",
+            "version": "2.4.16",
+            "installed": "2016-12-23T09:47:14+0000"
+        },
+        {
+            "package": "mysql",
+            "version": "5.5.43",
+            "installed": "2016-12-23T10:02:21+0000"
+        },
+        {
             "package": "php7-fpm",
             "version": "7.0",
-            "installed": "2016-04-26T20:23:12+0000"
+            "installed": "2016-12-23T10:03:06+0000"
+        },
+        {
+            "package": "php5.6-fpm",
+            "version": "5.6",
+            "installed": "2016-12-23T10:09:09+0000"
+        },
+        {
+            "package": "php5.5-fpm",
+            "version": "5.5",
+            "installed": "2016-12-23T10:09:47+0000"
         },
         {
             "package": "ftp",
             "version": "3.0.2",
-            "installed": "2016-04-26T20:24:33+0000"
+            "installed": "2016-12-23T10:18:59+0000"
         },
         {
             "package": "ssh",
             "version": "6.6p1",
-            "installed": "2016-04-26T20:24:33+0000"
+            "installed": "2016-12-23T10:18:59+0000"
+        },
+        {
+            "package": "postfix",
+            "version": "2.11.0",
+            "installed": "2017-01-17T08:22:10+0000"
+        },
+        {
+            "package": "dovecot",
+            "version": "2.2.9",
+            "installed": "2017-01-17T08:22:10+0000"
+        },
+        {
+            "package": "spamassassin",
+            "version": "3.4.0",
+            "installed": "2017-01-17T08:22:10+0000"
         }
     ]
 }
@@ -530,7 +644,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/mysql/version" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -541,11 +655,7 @@ $response = $client->getMySQLVersion($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "5.5.47-0ubuntu0.14.04.1"
-}
+null
 ```
 
 Get MySQL version.
@@ -566,7 +676,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/antispam" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -577,14 +687,7 @@ $response = $client->getServerSpamassassinPreferences($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "required_score": "10",
-        "subject_tag": "test-tag"
-    }
-}
+null
 ```
 
 Get server spamassassin preferences.
@@ -605,7 +708,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/antispam" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","tag":"test-tag","score":"10"}'
+-d '{"server":"server","tag":"tag","score":"score"}'
 ```
 
 ```php
@@ -616,11 +719,7 @@ $response = $client->setServerSpamassassinPreferences($server,$tag,$score);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set server spamassassin preferences.
@@ -647,7 +746,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hostings" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -662,13 +761,45 @@ $response = $client->getHostings($server);
     "code": 10000,
     "message": "Success!",
     "data": {
-        "test-domain.com": {
-            "domain": "test-domain.com",
+        "example.com": {
+            "domain": "example.com",
             "status": "enable",
-            "server": "apache",
+            "server": "mYSeRvEr-Id",
+            "processManager": "php-7",
+            "created": "2016-12-23T10:10:19+0000",
+            "modified": "2017-07-29T10:27:08+0000"
+        },
+        "php56.example.com": {
+            "domain": "php56.example.com",
+            "status": "enable",
+            "server": "mYSeRvEr-Id",
             "processManager": "php-5.6",
-            "created": "2016-04-05T23:22:50+0000",
-            "modified": "2016-04-05T23:22:50+0000"
+            "created": "2016-12-23T10:10:33+0000",
+            "modified": "2016-12-23T10:10:33+0000"
+        },
+        "php55.example.com": {
+            "domain": "php55.example.com",
+            "status": "enable",
+            "server": "mYSeRvEr-Id",
+            "processManager": "php-5.5",
+            "created": "2016-12-23T10:10:47+0000",
+            "modified": "2016-12-23T10:10:47+0000"
+        },
+        "blog.example.com": {
+            "domain": "blog.example.com",
+            "status": "enable",
+            "server": "mYSeRvEr-Id",
+            "processManager": "php-7",
+            "created": "2017-04-16T17:49:53+0000",
+            "modified": "2017-04-26T06:47:31+0000"
+        },
+        "test.example.com": {
+            "domain": "test.example.com",
+            "status": "enable",
+            "server": "mYSeRvEr-Id",
+            "processManager": "php-7",
+            "created": "2017-05-10T17:02:07+0000",
+            "modified": "2017-05-10T17:02:07+0000"
         }
     }
 }
@@ -692,7 +823,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hostings-info" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -703,41 +834,7 @@ $response = $client->getDetailedHostingsInfo($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "test-domain.com": {
-            "domain": "test-domain.com",
-            "status": "enable",
-            "alias": "test alias",
-            "ip": "*",
-            "documentRoot": "\/home\/test-domain.com\/htdocs",
-            "description": null,
-            "logDir": "\/home\/test-domain.com\/logs",
-            "server": "apache",
-            "processManager": "php-5.6",
-            "processManagerOptions": [],
-            "sslEnable": "disable",
-            "mailEnable": "enable",
-            "ftpEnabled": "enable",
-            "sshEnabled": "enable",
-            "sshAuthMode": "onlyPublicKey",
-            "quota": {
-                "active": false,
-                "soft": 0,
-                "hard": 0,
-                "unit": "KB"
-            },
-            "created": "2016-04-05T23:22:50+0000",
-            "modified": "2016-04-05T23:22:50+0000",
-            "systemUser": {
-                "username": "test-domaincom",
-                "homeDir": "\/home\/test-domain.com"
-            }
-        }
-    }
-}
+null
 ```
 
 Get detailed hostings info.
@@ -752,13 +849,13 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
 
-## Set root password.
+## Set MySQL root password.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/mysql/root-password" \
--X PATCH \
+-X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","password":"qweasd123"}'
+-d '{"server":"server","password":"password"}'
 ```
 
 ```php
@@ -769,18 +866,14 @@ $response = $client->setRootPassword($server,$password);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
-Set root password.
+Set MySQL root password.
 
 ### HTTP Request
 
-`PATCH  /v1/server/:server/mysql/root-password`
+`PUT  /v1/server/:server/mysql/root-password`
 
 ### URL parameters
 
@@ -799,22 +892,18 @@ curl "https://api.hosting4devs.com/v1/server/:server/firewall/rule" \
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","priority":"1","direction":"INPUT","action":"ACCEPT","protocol":"tcp","source":"111.111.111.111","destination":"222.222.222.222","sourcePort":"8001","destinationPort":"8002","replace":"true"}'
+-d '{"server":"server","priority":"priority","source":"source","destination":"destination","sourcePort":"sourcePort","destinationPort":"destinationPort","direction":"direction","action":"action","protocol":"protocol","replace":"replace"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->addFirewallRule($server,$priority,$direction,$action,$protocol,$source,$destination,$sourcePort,$destinationPort,$replace);
+$response = $client->addFirewallRule($server,$priority,$source,$destination,$sourcePort,$destinationPort,$direction,$action,$protocol,$replace);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Add new firewall rule.
@@ -834,13 +923,13 @@ server | true | Server API ID | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 priority | true | Priority | string | - | -
-direction | true | Direction | enum | ["INPUT","OUTPUT"] | INPUT
-action | true | Action | enum | ["ACCEPT","DROP"] | ACCEPT
-protocol | true | Protocol | enum | ["tcp","udp","udplite","icmp","icmpv6","esp","ah","sctp","mh","all"] | tcp
 source | true | Source IP or Subnet | string | - | -
 destination | true | Destination IP or Subnet | string | - | -
 sourcePort | true | Source port | string | - | all
 destinationPort | true | Destination port | string | - | all
+direction | true | Direction | enum | ["INPUT","OUTPUT"] | INPUT
+action | true | Action | enum | ["ACCEPT","DROP"] | ACCEPT
+protocol | true | Protocol | enum | ["tcp","udp","udplite","icmp","icmpv6","esp","ah","sctp","mh","all"] | tcp
 replace | true | Replace | boolean | [true,false] | 1
 ## Get firewall rules.
 ```shell
@@ -848,7 +937,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/firewall/rules" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -884,7 +973,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/firewall/rule" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","priority":"1","direction":"INPUT"}'
+-d '{"server":"server","priority":"priority","direction":"direction"}'
 ```
 
 ```php
@@ -895,11 +984,7 @@ $response = $client->removeFirewallRule($server,$priority,$direction);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Remove firewall rule.
@@ -926,7 +1011,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/firewall/block/:ip" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","ip":"123.123.123.123"}'
+-d '{"server":"mYSeRvEr-Id","ip":"1.2.3.4"}'
 ```
 
 ```php
@@ -963,7 +1048,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/firewall/block/:ip" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","ip":"123.123.123.123"}'
+-d '{"server":"server","ip":"ip"}'
 ```
 
 ```php
@@ -974,11 +1059,7 @@ $response = $client->firewallRemoveDisallowedIP($server,$ip);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Unblock IP.
@@ -1000,7 +1081,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/time" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -1011,14 +1092,7 @@ $response = $client->getServerTimeInformation($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "timezone": "Europe\/Paris",
-        "date": "2016-04-28T22:37:21+0200"
-    }
-}
+null
 ```
 
 Get server time information.
@@ -1039,7 +1113,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/time/timezone" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"server","timezone":"timezone"}'
+-d '{"server":"mYSeRvEr-Id","timezone":"Europe\/Madrid"}'
 ```
 
 ```php
@@ -1050,7 +1124,11 @@ $response = $client->setServerTimezone($server,$timezone);
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
 ```
 
 Set server timezone.
@@ -1076,7 +1154,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/settings" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"fi9CvJ-016"}'
+-d '{"server":"server"}'
 ```
 
 ```php
@@ -1087,34 +1165,7 @@ $response = $client->getDetailedServerSettings($server);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "cpu": {
-            "model": "Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz",
-            "nproc": "1"
-        },
-        "distro": {
-            "id": "Ubuntu",
-            "release": "14.04",
-            "codename": "trusty",
-            "description": "Ubuntu 14.04.2 LTS"
-        },
-        "kernel_release": "3.13.0-46-generic",
-        "timezone": "Etc\/UTC",
-        "date": "2016-04-28T21:10:25+0000",
-        "memory": {
-            "total": "501756",
-            "used": "375028",
-            "free": "126728",
-            "shared": "20988",
-            "buffers": "8832",
-            "cached": "127636",
-            "unit": "KB"
-        }
-    }
-}
+null
 ```
 
 Get detailed server settings.
@@ -1135,7 +1186,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/service/:service/status" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012","service":"vsftpd","status":"disable"}'
+-d '{"server":"mYSeRvEr-Id","service":"spamassassin","status":"enable"}'
 ```
 
 ```php
@@ -1177,7 +1228,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/service/:service/command" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012","service":"vsftpd","action":"stop"}'
+-d '{"server":"mYSeRvEr-Id","service":"h4d-php5.6-fpm","action":"restart"}'
 ```
 
 ```php
@@ -1189,9 +1240,9 @@ $response = $client->manageServerService($server,$service,$action);
 
 ```json
 {
-    "code": 21604,
-    "message": "Service \"vsftpd\" is disabled!",
-    "data": []
+    "code": 10000,
+    "message": "Success!",
+    "data": true
 }
 ```
 
@@ -1213,6 +1264,31 @@ service | true | Service name | string | - | -
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 action | true | Action | enum | ["start","stop","restart","reload"] | start
+## Get full list of active servers.
+```shell
+curl "https://api.hosting4devs.com/v1/server/list-full" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getActiveServersFullList();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Get full list of active servers.
+
+### HTTP Request
+
+`GET  /v1/server/list-full`
+
+
 ## Get list of active servers.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/list" \
@@ -1228,28 +1304,7 @@ $response = $client->getActiveServersList();
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": [
-        "fi9CvJ-001",
-        "fi9CvJ-002",
-        "fi9CvJ-003",
-        "fi9CvJ-004",
-        "fi9CvJ-005",
-        "fi9CvJ-006",
-        "fi9CvJ-007",
-        "fi9CvJ-008",
-        "fi9CvJ-009",
-        "fi9CvJ-010",
-        "fi9CvJ-011",
-        "fi9CvJ-012",
-        "fi9CvJ-013",
-        "fi9CvJ-014",
-        "fi9CvJ-015",
-        "fi9CvJ-016"
-    ]
-}
+null
 ```
 
 Get list of active servers.
@@ -1259,13 +1314,159 @@ Get list of active servers.
 `GET  /v1/server/list`
 
 
-## Reboot server.
+## Get deploy information by token.
 ```shell
-curl "https://api.hosting4devs.com/v1/server/:server/reboot" \
--X PATCH \
+curl "https://api.hosting4devs.com/v1/server/:server/deployments/:token" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","token":"token"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getGitDeployInfoByToken($server,$token);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Get deploy information by token.
+
+### HTTP Request
+
+`GET  /v1/server/:server/deployments/:token`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+token | true | Deploy token | string | - | -
+
+## Get git deployments info.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/deployments/git" \
+-X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
 -d '{"server":"server"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getGitDeploymentsInfo($server);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Get git deployments info.
+
+### HTTP Request
+
+`GET  /v1/server/:server/deployments/git`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+## Run the deploy identified by the given deploy token.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/run-deploy" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","token":"token"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->runGitDeployment($server,$token);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Run the deploy identified by the given deploy token (git clone for new deploys, git pull for existing deploys).
+
+### HTTP Request
+
+`PUT  /v1/server/:server/run-deploy`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+token | true | Deploy token | string | - | -
+## Install hosting addon.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/addon" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","addonName":"phpmyadmin","publicPath":"pma","settings":[]}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->installAddon($server,$domain,$addonName,$publicPath,$settings);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": "ea87040fee0ef5d3cabc365ebd308ef0"
+}
+```
+
+Install and setup a hosting addon.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/addon`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+addonName | true | Addon name | string | - | -
+publicPath | true | Public URL path | string | - | -
+settings | false | Addon settings | string | - | -
+## Reboot server.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/reboot" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -1276,14 +1477,18 @@ $response = $client->rebootServer($server);
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": "101d0cc55760ef932a2d02ddb5a12485"
+}
 ```
 
 Reboot server.
 
 ### HTTP Request
 
-`PATCH  /v1/server/:server/reboot`
+`POST  /v1/server/:server/reboot`
 
 ### URL parameters
 
@@ -1297,7 +1502,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/uninstall" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-002"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -1309,9 +1514,9 @@ $response = $client->uninstallH4DCS($server);
 
 ```json
 {
-    "code": 20000,
-    "message": "Execution error!",
-    "data": []
+    "code": 10000,
+    "message": "Success!",
+    "data": "8caeffdadc87ed289318a7289652f6d8"
 }
 ```
 
@@ -1334,7 +1539,7 @@ curl "https://api.hosting4devs.com/v1/snippet" \
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"title":"title","code":"code","interpreter":"interpreter","visibility":"visibility","notes":"notes"}'
+-d '{"title":"free","code":"free","interpreter":"BASH","visibility":"PRIVATE","notes":""}'
 ```
 
 ```php
@@ -1345,7 +1550,11 @@ $response = $client->publishSnippet($title,$code,$interpreter,$visibility,$notes
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": "9c7f4649f7b390091d85b052042fb600"
+}
 ```
 
 Add new snippet.
@@ -1370,7 +1579,7 @@ curl "https://api.hosting4devs.com/v1/snippet/:token" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"token":"token"}'
+-d '{"token":"8b220f9629cb4e5fbbdb2ca914bbbde4"}'
 ```
 
 ```php
@@ -1381,7 +1590,11 @@ $response = $client->deleteSnippetByToken($token);
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
 ```
 
 Delete snippet by token.
@@ -1402,7 +1615,7 @@ curl "https://api.hosting4devs.com/v1/snippet/:token" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"token":"f2afce36b66d58bc4d704a3037b503ea"}'
+-d '{"token":"8cfb6ea983807b096ed07cc4f559fce9"}'
 ```
 
 ```php
@@ -1417,15 +1630,28 @@ $response = $client->getSnippetByToken($token);
     "code": 10000,
     "message": "Success!",
     "data": {
-        "title": "Get timed",
-        "notes": "dddd",
+        "title": "ps -aux",
+        "notes": "",
         "visibility": "PRIVATE",
-        "token": "f2afce36b66d58bc4d704a3037b503ea",
-        "interpreter": "PHP",
-        "code": "PD9waHANCmVjaG8gdGltZSgpOw==",
+        "interpreter": "BASH",
+        "token": "8cfb6ea983807b096ed07cc4f559fce9",
+        "code": "cHMgLWF1eA==",
         "status": "ACTIVE",
-        "createdAt": "2016-02-23T22:07:54+00:00",
-        "updatedAt": "2016-03-31T22:03:52+00:00"
+        "createdAt": "2016-12-22T12:22:31Z",
+        "updatedAt": "2016-12-22T12:22:31Z",
+        "executionsCount": 8,
+        "lastExecution": {
+            "slave": "asQnPb-002",
+            "executionToken": "dcfd024aadb76d649f2ee62c01cd95e7",
+            "startDate": "2017-06-02T12:32:11Z",
+            "endDate": "2017-06-02T12:32:12Z",
+            "stdOut": "BASE64OUTPUT",
+            "stdErr": "",
+            "terminationCode": 0,
+            "status": "COMPLETED",
+            "createdAt": "2017-06-02T12:32:11Z",
+            "updatedAt": "2017-06-02T12:32:12Z"
+        }
     }
 }
 ```
@@ -1448,7 +1674,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/snippet/:token" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"server","token":"token"}'
+-d '{"server":"mYSeRvEr-Id","token":"dcfd024aadb76d649f2ee62c01cd95e7"}'
 ```
 
 ```php
@@ -1459,7 +1685,34 @@ $response = $client->getSnippetExecutionInfo($server,$token);
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "slave": "asQnPb-002",
+        "executionToken": "dcfd024aadb76d649f2ee62c01cd95e7",
+        "startDate": "2017-06-02T12:32:11Z",
+        "endDate": "2017-06-02T12:32:12Z",
+        "stdOut": "BASE64OUTPUT",
+        "stdErr": "",
+        "terminationCode": 0,
+        "status": "COMPLETED",
+        "createdAt": "2017-06-02T12:32:11Z",
+        "updatedAt": "2017-06-02T12:32:12Z",
+        "snippet": {
+            "title": "ps -aux",
+            "notes": "",
+            "visibility": "PRIVATE",
+            "interpreter": "BASH",
+            "token": "8cfb6ea983807b096ed07cc4f559fce9",
+            "code": "cHMgLWF1eA==",
+            "status": "ACTIVE",
+            "createdAt": "2016-12-22T12:22:31Z",
+            "updatedAt": "2016-12-22T12:22:31Z",
+            "executionsCount": 8
+        }
+    }
+}
 ```
 
 Get snippet execution by execution token.
@@ -1474,6 +1727,69 @@ Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
 server | true | Server API ID | string | - | -
 token | true | Snippet execution token | string | - | -
+
+## Get snippet executions.
+```shell
+curl "https://api.hosting4devs.com/v1/snippet/:token/executions" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"token":"27f0c9f5274d6f931f2c8676267866f8"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getSnippetExecutionsByToken($token);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "snippet": {
+            "title": "Process list",
+            "notes": "O",
+            "visibility": "PRIVATE",
+            "interpreter": "BASH",
+            "token": "27f0c9f5274d6f931f2c8676267866f8",
+            "code": "cHMgLWF1eA==",
+            "status": "ACTIVE",
+            "createdAt": "2017-01-19T15:53:51Z",
+            "updatedAt": "2017-01-19T15:53:51Z",
+            "executionsCount": 4
+        },
+        "executions": [
+            {
+                "slave": "mYSeRvEr-Id",
+                "executionToken": "0d32e3f7fa771c8ee6546923a19f7df0",
+                "startDate": "2017-01-27T12:33:21Z",
+                "endDate": "2017-01-27T12:33:21Z",
+                "stdOut": "BASE64OUTPUT",
+                "stdErr": "",
+                "terminationCode": 0,
+                "status": "COMPLETED",
+                "createdAt": "2017-01-27T12:33:21Z",
+                "updatedAt": "2017-01-27T12:33:21Z"
+            }
+        ]
+    }
+}
+```
+
+Get snippet executions.
+
+### HTTP Request
+
+`GET  /v1/snippet/:token/executions`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+token | true | Snippet token | string | - | -
 
 ## Get user snippets.
 ```shell
@@ -1493,63 +1809,7 @@ $response = $client->getUserSnippets();
 {
     "code": 10000,
     "message": "Success!",
-    "data": [
-        {
-            "title": "Get timed",
-            "notes": "dddd",
-            "visibility": "PRIVATE",
-            "token": "f2afce36b66d58bc4d704a3037b503ea",
-            "interpreter": "PHP",
-            "code": "PD9waHANCmVjaG8gdGltZSgpOw==",
-            "status": "ACTIVE",
-            "createdAt": "2016-02-23T22:07:54+00:00",
-            "updatedAt": "2016-03-31T22:03:52+00:00"
-        },
-        {
-            "title": "Ps",
-            "notes": "",
-            "visibility": "PRIVATE",
-            "token": "5fa21b0711b6d2da4bfd932c7d2ef8db",
-            "interpreter": "BASH",
-            "code": "cHMgLWF1eA==",
-            "status": "ACTIVE",
-            "createdAt": "2016-02-27T17:58:03+00:00",
-            "updatedAt": "2016-02-27T18:00:25+00:00"
-        },
-        {
-            "title": "dsfsda",
-            "notes": "",
-            "visibility": "PRIVATE",
-            "token": "719d86bb4c92699c08123b8e19ed4c95",
-            "interpreter": "BASH",
-            "code": "ZGFzZnNkYWZkcw==",
-            "status": "ACTIVE",
-            "createdAt": "2016-03-17T16:31:42+00:00",
-            "updatedAt": "2016-03-17T16:31:42+00:00"
-        },
-        {
-            "title": "Tgg",
-            "notes": "",
-            "visibility": "PRIVATE",
-            "token": "b12400e647a50173f11c95ef89cc2b51",
-            "interpreter": "BASH",
-            "code": "R2dn",
-            "status": "ACTIVE",
-            "createdAt": "2016-03-30T09:36:22+00:00",
-            "updatedAt": "2016-03-30T09:36:22+00:00"
-        },
-        {
-            "title": "asdfsdfsd",
-            "notes": "",
-            "visibility": "PRIVATE",
-            "token": "1215a4a56dfd60aa3a888489702d4622",
-            "interpreter": "BASH",
-            "code": "bHM=",
-            "status": "ACTIVE",
-            "createdAt": "2016-03-31T22:04:06+00:00",
-            "updatedAt": "2016-03-31T22:04:06+00:00"
-        }
-    ]
+    "data": []
 }
 ```
 
@@ -1578,386 +1838,7 @@ $response = $client->getUserSnippetsExecutionQueue();
 {
     "code": 10000,
     "message": "Success!",
-    "data": {
-        "f2afce36b66d58bc4d704a3037b503ea": {
-            "snippet": {
-                "title": "Get timed",
-                "notes": "dddd",
-                "visibility": "PRIVATE",
-                "token": "f2afce36b66d58bc4d704a3037b503ea",
-                "interpreter": "PHP",
-                "code": "PD9waHANCmVjaG8gdGltZSgpOw==",
-                "status": "ACTIVE",
-                "createdAt": "2016-02-23T22:07:54+00:00",
-                "updatedAt": "2016-03-31T22:03:52+00:00"
-            },
-            "executions": {
-                "2fc84567566082dba53ce9b1944fd2a4": {
-                    "slave": "fi9CvJ-003",
-                    "executionToken": "2fc84567566082dba53ce9b1944fd2a4",
-                    "startDate": "2016-02-25T16:51:30+00:00",
-                    "endDate": "2016-02-25T16:51:30+00:00",
-                    "stdout": "MTQ1NjQxOTA5MA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-02-25T16:51:30+00:00",
-                    "updatedAt": "2016-02-25T16:51:30+00:00"
-                },
-                "f05709abb95c6ad7ea103ba1abc94594": {
-                    "slave": "fi9CvJ-003",
-                    "executionToken": "f05709abb95c6ad7ea103ba1abc94594",
-                    "startDate": "2016-02-25T16:53:25+00:00",
-                    "endDate": "2016-02-25T16:53:26+00:00",
-                    "stdout": "MTQ1NjQxOTIwNQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-02-25T16:53:25+00:00",
-                    "updatedAt": "2016-02-25T16:53:26+00:00"
-                },
-                "74b72e0ba043b8a322e7e122820ed011": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "74b72e0ba043b8a322e7e122820ed011",
-                    "startDate": "2016-03-02T18:41:35+00:00",
-                    "endDate": "2016-03-02T18:41:35+00:00",
-                    "stdout": "MTQ1Njk0NDEwMw==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T18:41:35+00:00",
-                    "updatedAt": "2016-03-02T18:41:35+00:00"
-                },
-                "7834c893bbff5bb797cfe6e78d58b094": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "7834c893bbff5bb797cfe6e78d58b094",
-                    "startDate": "2016-03-02T18:42:02+00:00",
-                    "endDate": "2016-03-02T18:42:02+00:00",
-                    "stdout": "MTQ1Njk0NDEzMA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T18:42:02+00:00",
-                    "updatedAt": "2016-03-02T18:42:02+00:00"
-                },
-                "92f0bc082ac107852089308da9dcf5ba": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "92f0bc082ac107852089308da9dcf5ba",
-                    "startDate": "2016-03-02T18:45:34+00:00",
-                    "endDate": "2016-03-02T18:45:34+00:00",
-                    "stdout": "MTQ1Njk0NDMzNA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T18:45:34+00:00",
-                    "updatedAt": "2016-03-02T18:45:34+00:00"
-                },
-                "9358b158108f14c36defd8f18ab64af1": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "9358b158108f14c36defd8f18ab64af1",
-                    "startDate": "2016-03-02T19:03:19+00:00",
-                    "endDate": "2016-03-02T19:03:19+00:00",
-                    "stdout": "MTQ1Njk0NTM5OQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:03:19+00:00",
-                    "updatedAt": "2016-03-02T19:03:19+00:00"
-                },
-                "c97d9a981fdc2b17e6e2a6a302ee281a": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "c97d9a981fdc2b17e6e2a6a302ee281a",
-                    "startDate": "2016-03-02T19:03:36+00:00",
-                    "endDate": "2016-03-02T19:03:36+00:00",
-                    "stdout": "MTQ1Njk0NTQxNg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:03:36+00:00",
-                    "updatedAt": "2016-03-02T19:03:36+00:00"
-                },
-                "4b3bbf710dcc75fa00143e2fb905e3db": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "4b3bbf710dcc75fa00143e2fb905e3db",
-                    "startDate": "2016-03-02T19:04:08+00:00",
-                    "endDate": "2016-03-02T19:04:08+00:00",
-                    "stdout": "MTQ1Njk0NTQ0OA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:04:08+00:00",
-                    "updatedAt": "2016-03-02T19:04:08+00:00"
-                },
-                "47acbc17592c6cb5d4110f0aca979fd6": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "47acbc17592c6cb5d4110f0aca979fd6",
-                    "startDate": "2016-03-02T19:27:31+00:00",
-                    "endDate": "2016-03-02T19:27:32+00:00",
-                    "stdout": "MTQ1Njk0Njg1MQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:27:31+00:00",
-                    "updatedAt": "2016-03-02T19:27:32+00:00"
-                },
-                "b6b25e52f538928e4988645664b951a0": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "b6b25e52f538928e4988645664b951a0",
-                    "startDate": "2016-03-02T19:27:44+00:00",
-                    "endDate": "2016-03-02T19:27:44+00:00",
-                    "stdout": "MTQ1Njk0Njg2NA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:27:44+00:00",
-                    "updatedAt": "2016-03-02T19:27:44+00:00"
-                },
-                "5b5fe109d92e8033c5e11ff793cdd8a9": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "5b5fe109d92e8033c5e11ff793cdd8a9",
-                    "startDate": "2016-03-02T19:27:54+00:00",
-                    "endDate": "2016-03-02T19:27:54+00:00",
-                    "stdout": "MTQ1Njk0Njg3NA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:27:54+00:00",
-                    "updatedAt": "2016-03-02T19:27:54+00:00"
-                },
-                "28994c8853d6d2026db8ded4f68c0f11": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "28994c8853d6d2026db8ded4f68c0f11",
-                    "startDate": "2016-03-02T19:28:14+00:00",
-                    "endDate": "2016-03-02T19:28:15+00:00",
-                    "stdout": "MTQ1Njk0Njg5NQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T19:28:14+00:00",
-                    "updatedAt": "2016-03-02T19:28:15+00:00"
-                },
-                "0b125e66982d6cc2d4da5c1c170499f6": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "0b125e66982d6cc2d4da5c1c170499f6",
-                    "startDate": "2016-03-02T20:18:23+00:00",
-                    "endDate": "2016-03-02T20:18:23+00:00",
-                    "stdout": "MTQ1Njk0OTE5Mw==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T20:18:23+00:00",
-                    "updatedAt": "2016-03-02T20:18:23+00:00"
-                },
-                "560250246ad725f9e5b35eaa51fa8c6d": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "560250246ad725f9e5b35eaa51fa8c6d",
-                    "startDate": "2016-03-02T20:20:25+00:00",
-                    "endDate": "2016-03-02T20:20:26+00:00",
-                    "stdout": "MTQ1Njk0OTMxNg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T20:20:25+00:00",
-                    "updatedAt": "2016-03-02T20:20:26+00:00"
-                },
-                "765939e77710d3bebc51d7c68265578a": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "765939e77710d3bebc51d7c68265578a",
-                    "startDate": "2016-03-02T20:26:15+00:00",
-                    "endDate": "2016-03-02T20:26:15+00:00",
-                    "stdout": "MTQ1Njk0OTY2NQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T20:26:15+00:00",
-                    "updatedAt": "2016-03-02T20:26:15+00:00"
-                },
-                "6c4fb98c1c61305191e076d48196f820": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "6c4fb98c1c61305191e076d48196f820",
-                    "startDate": "2016-03-02T21:00:15+00:00",
-                    "endDate": "2016-03-02T21:00:15+00:00",
-                    "stdout": "MTQ1Njk1MjQxNQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:00:15+00:00",
-                    "updatedAt": "2016-03-02T21:00:15+00:00"
-                },
-                "7ad50f68e2933c4173f12da62e559436": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "7ad50f68e2933c4173f12da62e559436",
-                    "startDate": "2016-03-02T21:00:34+00:00",
-                    "endDate": "2016-03-02T21:00:36+00:00",
-                    "stdout": "MTQ1Njk1MjQzNg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:00:34+00:00",
-                    "updatedAt": "2016-03-02T21:00:36+00:00"
-                },
-                "540fb68e3a6054db2721620e0d35a485": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "540fb68e3a6054db2721620e0d35a485",
-                    "startDate": "2016-03-02T21:01:25+00:00",
-                    "endDate": "2016-03-02T21:01:25+00:00",
-                    "stdout": "MTQ1Njk1MjQ4NQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:01:25+00:00",
-                    "updatedAt": "2016-03-02T21:01:25+00:00"
-                },
-                "af0257696bf74fd7bd6ed1f66697aa71": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "af0257696bf74fd7bd6ed1f66697aa71",
-                    "startDate": "2016-03-02T21:03:24+00:00",
-                    "endDate": "2016-03-02T21:03:25+00:00",
-                    "stdout": "MTQ1Njk1MjYwNQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:03:24+00:00",
-                    "updatedAt": "2016-03-02T21:03:25+00:00"
-                },
-                "f783e37ec1e2f65ee0993451ed111543": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "f783e37ec1e2f65ee0993451ed111543",
-                    "startDate": "2016-03-02T21:03:47+00:00",
-                    "endDate": "2016-03-02T21:03:48+00:00",
-                    "stdout": "MTQ1Njk1MjYyOA==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:03:47+00:00",
-                    "updatedAt": "2016-03-02T21:03:48+00:00"
-                },
-                "a122d384f87a5b8424267275dcc52e35": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "a122d384f87a5b8424267275dcc52e35",
-                    "startDate": "2016-03-02T21:55:33+00:00",
-                    "endDate": "2016-03-02T21:55:33+00:00",
-                    "stdout": "MTQ1Njk1NTczMw==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:55:33+00:00",
-                    "updatedAt": "2016-03-02T21:55:33+00:00"
-                },
-                "3c3b45de521d9ccae3243dd595cb08f3": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "3c3b45de521d9ccae3243dd595cb08f3",
-                    "startDate": "2016-03-02T21:55:59+00:00",
-                    "endDate": "2016-03-02T21:55:59+00:00",
-                    "stdout": "MTQ1Njk1NTc1OQ==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T21:55:59+00:00",
-                    "updatedAt": "2016-03-02T21:55:59+00:00"
-                },
-                "938374ff1456bd8ef0900a70900c561b": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "938374ff1456bd8ef0900a70900c561b",
-                    "startDate": "2016-03-02T22:18:25+00:00",
-                    "endDate": "2016-03-02T22:18:26+00:00",
-                    "stdout": "MTQ1Njk1NzEwNg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T22:18:25+00:00",
-                    "updatedAt": "2016-03-02T22:18:26+00:00"
-                }
-            }
-        },
-        "5fa21b0711b6d2da4bfd932c7d2ef8db": {
-            "snippet": {
-                "title": "Ps",
-                "notes": "",
-                "visibility": "PRIVATE",
-                "token": "5fa21b0711b6d2da4bfd932c7d2ef8db",
-                "interpreter": "BASH",
-                "code": "cHMgLWF1eA==",
-                "status": "ACTIVE",
-                "createdAt": "2016-02-27T17:58:03+00:00",
-                "updatedAt": "2016-02-27T18:00:25+00:00"
-            },
-            "executions": {
-                "7c853d27e95b547f711a28f3a5d87b5c": {
-                    "slave": "fi9CvJ-003",
-                    "executionToken": "7c853d27e95b547f711a28f3a5d87b5c",
-                    "startDate": "2016-02-27T17:58:35+00:00",
-                    "endDate": "2016-02-27T17:58:35+00:00",
-                    "stdout": "",
-                    "stderr": "dG9wOiBmYWlsZWQgdHR5IGdldAo=",
-                    "terminationCode": 1,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-02-27T17:58:35+00:00",
-                    "updatedAt": "2016-02-27T17:58:35+00:00"
-                },
-                "787cc7aa00e4809fcd303c129cf57330": {
-                    "slave": "fi9CvJ-003",
-                    "executionToken": "787cc7aa00e4809fcd303c129cf57330",
-                    "startDate": "2016-02-27T18:02:36+00:00",
-                    "endDate": "2016-02-27T18:02:36+00:00",
-                    "stdout": "VVNFUiAgICAgICBQSUQgJUNQVSAlTUVNICAgIFZTWiAgIFJTUyBUVFkgICAgICBTVEFUIFNUQVJUICAgVElNRSBDT01NQU5ECnJvb3QgICAgICAgICAxICAwLjAgIDEuMiAgMzY4MTIgIDYxNTYgPyAgICAgICAgU3MgICBGZWIyNiAgIDA6MDMgL3NiaW4vaW5pdApyb290ICAgICAgICAgMiAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtrdGhyZWFkZF0Kcm9vdCAgICAgICAgIDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBba3NvZnRpcnFkLzBdCnJvb3QgICAgICAgICA1ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2t3b3JrZXIvMDowSF0Kcm9vdCAgICAgICAgIDYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBba3dvcmtlci91MjowXQpyb290ICAgICAgICAgNyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAyIFtyY3Vfc2NoZWRdCnJvb3QgICAgICAgICA4ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDIgW3JjdW9zLzBdCnJvb3QgICAgICAgICA5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDAgW3JjdV9iaF0Kcm9vdCAgICAgICAgMTAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBbcmN1b2IvMF0Kcm9vdCAgICAgICAgMTEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBbbWlncmF0aW9uLzBdCnJvb3QgICAgICAgIDEyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDAgW3dhdGNoZG9nLzBdCnJvb3QgICAgICAgIDEzICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2toZWxwZXJdCnJvb3QgICAgICAgIDE0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDAgW2tkZXZ0bXBmc10Kcm9vdCAgICAgICAgMTUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIEZlYjI2ICAgMDowMCBbbmV0bnNdCnJvb3QgICAgICAgIDE2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW3dyaXRlYmFja10Kcm9vdCAgICAgICAgMTcgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIEZlYjI2ICAgMDowMCBba2ludGVncml0eWRdCnJvb3QgICAgICAgIDE4ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2Jpb3NldF0Kcm9vdCAgICAgICAgMTkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIEZlYjI2ICAgMDowMCBba3dvcmtlci91MzowXQpyb290ICAgICAgICAyMCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgRmViMjYgICAwOjAwIFtrYmxvY2tkXQpyb290ICAgICAgICAyMSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgRmViMjYgICAwOjAwIFthdGFfc2ZmXQpyb290ICAgICAgICAyMiAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtraHViZF0Kcm9vdCAgICAgICAgMjMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIEZlYjI2ICAgMDowMCBbbWRdCnJvb3QgICAgICAgIDI0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2RldmZyZXFfd3FdCnJvb3QgICAgICAgIDI1ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDUgW2t3b3JrZXIvMDoxXQpyb290ICAgICAgICAyNyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtraHVuZ3Rhc2tkXQpyb290ICAgICAgICAyOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtrc3dhcGQwXQpyb290ICAgICAgICAyOSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFNOICAgRmViMjYgICAwOjAwIFtrc21kXQpyb290ICAgICAgICAzMCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtmc25vdGlmeV9tYXJrXQpyb290ICAgICAgICAzMSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtlY3J5cHRmcy1rdGhyZWFdCnJvb3QgICAgICAgIDMyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2NyeXB0b10Kcm9vdCAgICAgICAgNDQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIEZlYjI2ICAgMDowMCBba3Rocm90bGRdCnJvb3QgICAgICAgIDQ1ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDIgW2t3b3JrZXIvdTI6MV0Kcm9vdCAgICAgICAgNDYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBbdmJhbGxvb25dCnJvb3QgICAgICAgIDQ3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICBGZWIyNiAgIDA6MDAgW3Njc2lfZWhfMF0Kcm9vdCAgICAgICAgNDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBbc2NzaV9laF8xXQpyb290ICAgICAgICA2OSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgRmViMjYgICAwOjAwIFtkZWZlcndxXQpyb290ICAgICAgICA3MCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgRmViMjYgICAwOjAwIFtjaGFyZ2VyX21hbmFnZXJdCnJvb3QgICAgICAgMTE1ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2twc21vdXNlZF0Kcm9vdCAgICAgICAxMjMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMiBbamJkMi92ZGExLThdCnJvb3QgICAgICAgMTI0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2V4dDQtcnN2LWNvbnZlcl0Kcm9vdCAgICAgICAxMzggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMDowMCBba3dvcmtlci8wOjJdCnJvb3QgICAgICAgMzEwICAwLjAgIDAuMSAgIDQ0NDAgICA2NTYgPyAgICAgICAgU3MgICBGZWIyNiAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtbWV0cmljcyAgPj4gL3Zhci9sb2cvaDRkL21ldHJpY3MubG9nIC9iaW4vc2gKcm9vdCAgICAgICAzMTEgIDAuMCAgMi44IDIzMjQyMCAxNDA4MCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMTowNSBoNGQtbWV0cmljcyAgICAgICAgICAgICAKcm9vdCAgICAgICA0NTEgIDAuMCAgMC4zICA1MTIzMiAgMTUyMCA\/ICAgICAgICBTcyAgIEZlYjI2ICAgMDowMCAvbGliL3N5c3RlbWQvc3lzdGVtZC11ZGV2ZCAtLWRhZW1vbgpyb290ICAgICAgIDUwNiAgMC4wICAwLjEgICA0NDQwICAgNjUyID8gICAgICAgIFNzICAgRmViMjYgICAwOjAwIC9iaW4vc2ggLWUgLWMgL3Vzci9iaW4vaDRkLXdhdGNoZG9nICA+PiAvdmFyL2xvZy9oNGQvd2F0Y2hkb2cubG9nIC9iaW4vc2gKcm9vdCAgICAgICA1MDcgIDAuMCAgMy4wIDIzNTUxNiAxNTU0MCA\/ICAgICAgICBTICAgIEZlYjI2ICAgMTowOCBoNGQtd2F0Y2hkb2cgICAgICAgICAgICAgCnJvb3QgICAgICAgNjQ0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW3R0bV9zd2FwXQpyb290ICAgICAgIDY5MCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgRmViMjYgICAwOjAwIFtrdm0taXJxZmQtY2xlYW5dCm1lc3NhZ2UrICAgODIzICAwLjAgIDAuMiAgMzkxMTIgIDEwMjggPyAgICAgICAgU3MgICBGZWIyNiAgIDA6MDAgZGJ1cy1kYWVtb24gLS1zeXN0ZW0gLS1mb3JrCnJvb3QgICAgICAgODc4ICAwLjAgIDAuMyAgNDM0NDggIDE4MDAgPyAgICAgICAgU3MgICBGZWIyNiAgIDA6MDAgL2xpYi9zeXN0ZW1kL3N5c3RlbWQtbG9naW5kCnN5c2xvZyAgICAgODgxICAwLjAgIDAuNSAyNTU4NDAgIDI5MzIgPyAgICAgICAgU3NsICBGZWIyNiAgIDA6MDIgcnN5c2xvZ2QKcm9vdCAgICAgICA5NTcgIDAuMCAgMC4xICAxNTgxNiAgIDk2MCB0dHk0ICAgICBTcysgIEZlYjI2ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHk0CnJvb3QgICAgICAgOTYwICAwLjAgIDAuMSAgMTU4MTYgICA5NjAgdHR5NSAgICAgU3MrICBGZWIyNiAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5NQpyb290ICAgICAgIDk2NSAgMC4wICAwLjEgIDE1ODE2ICAgOTU2IHR0eTIgICAgIFNzKyAgRmViMjYgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTIKcm9vdCAgICAgICA5NjYgIDAuMCAgMC4xICAxNTgxNiAgIDk2NCB0dHkzICAgICBTcysgIEZlYjI2ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHkzCnJvb3QgICAgICAgOTY4ICAwLjAgIDAuMSAgMTU4MTYgICA5NjQgdHR5NiAgICAgU3MrICBGZWIyNiAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5Ngpyb290ICAgICAgIDk5MCAgMC4wICAwLjYgIDYxMzcyICAzMDcyID8gICAgICAgIFNzICAgRmViMjYgICAwOjAxIC91c3Ivc2Jpbi9zc2hkIC1ECnJvb3QgICAgICAgOTk1ICAwLjAgIDAuMSAgIDQzNjQgICA2NTYgPyAgICAgICAgU3MgICBGZWIyNiAgIDA6MDAgYWNwaWQgLWMgL2V0Yy9hY3BpL2V2ZW50cyAtcyAvdmFyL3J1bi9hY3BpZC5zb2NrZXQKcm9vdCAgICAgICA5OTYgIDAuMCAgMC4yICAyMzY1MiAgMTA0NCA\/ICAgICAgICBTcyAgIEZlYjI2ICAgMDowMCBjcm9uCmRhZW1vbiAgICAgOTk3ICAwLjAgIDAuMCAgMTkxMzYgICAxNjQgPyAgICAgICAgU3MgICBGZWIyNiAgIDA6MDAgYXRkCnJvb3QgICAgICAxMTM3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICBGZWIyNiAgIDA6MDAgW2t3b3JrZXIvdTM6MV0KbnRwICAgICAgIDExNjcgIDAuMCAgMC40ICAzMTQ0OCAgMjEwNCA\/ICAgICAgICBTcyAgIEZlYjI2ICAgMDowOCAvdXNyL3NiaW4vbnRwZCAtcCAvdmFyL3J1bi9udHBkLnBpZCAtZyAtdSAxMDY6MTE0CnJvb3QgICAgICAxMjM4ICAwLjAgIDAuMSAgMTU4MTYgICA5NDggdHR5MSAgICAgU3MrICBGZWIyNiAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5MQpyb290ICAgICAgMTI5NyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgRmViMjYgICAwOjAwIFtrYXVkaXRkXQpyb290ICAgICAgNDgzNCAgMC4wICAwLjEgIDE5NDcyICAgNjUyID8gICAgICAgIFMgICAgMTc6NTUgICAwOjAwIHVwc3RhcnQtdWRldi1icmlkZ2UgLS1kYWVtb24Kcm9vdCAgICAgIDQ4MzcgIDAuMCAgMC4xICAxNTI1NiAgIDYyOCA\/ICAgICAgICBTICAgIDE3OjU1ICAgMDowMCB1cHN0YXJ0LXNvY2tldC1icmlkZ2UgLS1kYWVtb24Kcm9vdCAgICAgIDQ4NDAgIDAuMCAgMC4xICAxNTI3MiAgIDYyOCA\/ICAgICAgICBTICAgIDE3OjU1ICAgMDowMCB1cHN0YXJ0LWZpbGUtYnJpZGdlIC0tZGFlbW9uCnJvb3QgICAgIDEwOTAyICAwLjAgIDAuMyAgMTc3NzIgIDE1MjAgPyAgICAgICAgU3MgICAxNzo1NiAgIDA6MDAgL3Vzci9zYmluL2RvdmVjb3QgLUYgLWMgL2V0Yy9kb3ZlY290L2RvdmVjb3QuY29uZgpkb3ZlY290ICAxMDkxMyAgMC4wICAwLjEgICA5MjgwICAgOTc2ID8gICAgICAgIFMgICAgMTc6NTYgICAwOjAwIGRvdmVjb3QvYW52aWwKcm9vdCAgICAgMTA5MTQgIDAuMCAgMC4yICAgOTQwOCAgMTE0OCA\/ICAgICAgICBTICAgIDE3OjU2ICAgMDowMCBkb3ZlY290L2xvZwpyb290ICAgICAxMDkxNiAgMC4wICAwLjQgIDE4NzMyICAyMjI0ID8gICAgICAgIFMgICAgMTc6NTYgICAwOjAwIGRvdmVjb3QvY29uZmlnCnJvb3QgICAgIDEwOTE4ICAwLjQgMTIuNyAxMzc0NTIgNjQxNzIgPyAgICAgICAgU3MgICAxNzo1NiAgIDA6MDEgL3Vzci9zYmluL3NwYW1kIC1kIC1tNSAteCAtcSAtUSAtLXVzZXJuYW1lIHNwYW1kIC0taGVscGVyLWhvbWUtZGlyIC92YXIvbG9nL3NwYW1hc3Nhc3Npbi8gLXMgL3Zhci9sb2cvc3BhbWFzc2Fzc2luL3NwYW1kLmxvZyAtZCAtLXBpZGZpbGU9L3Zhci9sb2cvc3BhbWFzc2Fzc2luL3NwYW1kLnBpZApzcGFtZCAgICAxMDkxOSAgMC4wIDEyLjQgMTM3NDUyIDYyNjUyID8gICAgICAgIFMgICAgMTc6NTYgICAwOjAwIHNwYW1kIGNoaWxkCnNwYW1kICAgIDEwOTIxICAwLjAgMTIuNCAxMzc0NTIgNjI2NTIgPyAgICAgICAgUyAgICAxNzo1NiAgIDA6MDAgc3BhbWQgY2hpbGQKcm9vdCAgICAgMTEwMzcgIDAuMCAgMC4zICAyNTM0MCAgMTYwNCA\/ICAgICAgICBTcyAgIDE3OjU2ICAgMDowMCAvdXNyL2xpYi9wb3N0Zml4L21hc3Rlcgpwb3N0Zml4ICAxMTAzOCAgMC4wICAwLjMgIDI3NDA0ICAxNTMyID8gICAgICAgIFMgICAgMTc6NTYgICAwOjAwIHBpY2t1cCAtbCAtdCB1bml4IC11IC1jCnBvc3RmaXggIDExMDM5ICAwLjAgIDAuMyAgMjc0NTYgIDE1NjQgPyAgICAgICAgUyAgICAxNzo1NiAgIDA6MDAgcW1nciAtbCAtdCB1bml4IC11CnJvb3QgICAgIDExMTcxICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgWiAgICAxNzo1OCAgIDA6MDAgW3BocF0gPGRlZnVuY3Q+CnJvb3QgICAgIDExMjYwICAwLjAgIDIuNyAyMzY5ODggMTM4NzYgPyAgICAgICAgUyAgICAxODowMiAgIDA6MDAgaDRkLXJwYy1zZXJ2ZXIgICAgICAgICAgICAgCnJvb3QgICAgIDExMjYyICAwLjAgIDAuMSAgIDQ0NDAgICA2NTIgPyAgICAgICAgUyAgICAxODowMiAgIDA6MDAgc2ggLWMgL3Zhci90bXAvMTQ1NjU5NjE1Ni01ZmEyMWIwNzExYjZkMmRhNGJmZDkzMmM3ZDJlZjhkYgpyb290ICAgICAxMTI2MyAgMC4wICAwLjIgIDE3OTUyICAxNDEyID8gICAgICAgIFMgICAgMTg6MDIgICAwOjAwIC9iaW4vYmFzaCAvdmFyL3RtcC8xNDU2NTk2MTU2LTVmYTIxYjA3MTFiNmQyZGE0YmZkOTMyYzdkMmVmOGRiCnJvb3QgICAgIDExMjY0ICAwLjAgIDAuMiAgMTU1NjQgIDExNTIgPyAgICAgICAgUiAgICAxODowMiAgIDA6MDAgcHMgLWF1eApyb290ICAgICAzMTcwMyAgMC4wICAwLjEgICA0NDQwICAgNjQ4ID8gICAgICAgIFNzICAgMTc6MzggICAwOjAwIC9iaW4vc2ggLWUgLWMgL3Vzci9iaW4vaDRkLXJwYy1zZXJ2ZXIgID4+IC92YXIvbG9nL2g0ZC9ycGMtc2VydmVyLmxvZyAvYmluL3NoCnJvb3QgICAgIDMxNzA0ICAwLjAgIDMuNSAyMzY1ODQgMTc2NDggPyAgICAgICAgUyAgICAxNzozOCAgIDA6MDAgaDRkLXJwYy1zZXJ2ZXIgICAgICAgICAgICAgCnJvb3QgICAgIDMyMDc0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgWiAgICAxNzo1MyAgIDA6MDAgW3BocF0gPGRlZnVuY3Q+Cg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-02-27T18:02:36+00:00",
-                    "updatedAt": "2016-02-27T18:02:36+00:00"
-                },
-                "1b5dfb6ec70ae6d47a21c55ad944bcd6": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "1b5dfb6ec70ae6d47a21c55ad944bcd6",
-                    "startDate": "2016-03-02T18:38:52+00:00",
-                    "endDate": "2016-03-02T18:38:53+00:00",
-                    "stdout": "VVNFUiAgICAgICBQSUQgJUNQVSAlTUVNICAgIFZTWiAgIFJTUyBUVFkgICAgICBTVEFUIFNUQVJUICAgVElNRSBDT01NQU5ECnJvb3QgICAgICAgICAxICAwLjAgIDAuNSAgMzM1ODQgIDI3NjQgPyAgICAgICAgU3MgICAxNzozMSAgIDA6MDAgL3NiaW4vaW5pdApyb290ICAgICAgICAgMiAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzEgICAwOjAwIFtrdGhyZWFkZF0Kcm9vdCAgICAgICAgIDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMCBba3NvZnRpcnFkLzBdCnJvb3QgICAgICAgICA0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2t3b3JrZXIvMDowXQpyb290ICAgICAgICAgNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtrd29ya2VyLzA6MEhdCnJvb3QgICAgICAgICA3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDIgW3JjdV9zY2hlZF0Kcm9vdCAgICAgICAgIDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMiBbcmN1b3MvMF0Kcm9vdCAgICAgICAgIDkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMCBbcmN1X2JoXQpyb290ICAgICAgICAxMCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzEgICAwOjAwIFtyY3VvYi8wXQpyb290ICAgICAgICAxMSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzEgICAwOjAwIFttaWdyYXRpb24vMF0Kcm9vdCAgICAgICAgMTIgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMCBbd2F0Y2hkb2cvMF0Kcm9vdCAgICAgICAgMTMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBba2hlbHBlcl0Kcm9vdCAgICAgICAgMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMCBba2RldnRtcGZzXQpyb290ICAgICAgICAxNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtuZXRuc10Kcm9vdCAgICAgICAgMTYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBbd3JpdGViYWNrXQpyb290ICAgICAgICAxNyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtraW50ZWdyaXR5ZF0Kcm9vdCAgICAgICAgMTggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBbYmlvc2V0XQpyb290ICAgICAgICAxOSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtrd29ya2VyL3UzOjBdCnJvb3QgICAgICAgIDIwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozMSAgIDA6MDAgW2tibG9ja2RdCnJvb3QgICAgICAgIDIxICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozMSAgIDA6MDAgW2F0YV9zZmZdCnJvb3QgICAgICAgIDIyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2todWJkXQpyb290ICAgICAgICAyMyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFttZF0Kcm9vdCAgICAgICAgMjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBbZGV2ZnJlcV93cV0Kcm9vdCAgICAgICAgMjUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMCBba3dvcmtlci8wOjFdCnJvb3QgICAgICAgIDI2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2todW5ndGFza2RdCnJvb3QgICAgICAgIDI3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2tzd2FwZDBdCnJvb3QgICAgICAgIDI4ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgU04gICAxNzozMSAgIDA6MDAgW2tzbWRdCnJvb3QgICAgICAgIDI5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2Zzbm90aWZ5X21hcmtdCnJvb3QgICAgICAgIDMwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2VjcnlwdGZzLWt0aHJlYV0Kcm9vdCAgICAgICAgMzEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBbY3J5cHRvXQpyb290ICAgICAgICA0MyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtrdGhyb3RsZF0Kcm9vdCAgICAgICAgNjMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBbZGVmZXJ3cV0Kcm9vdCAgICAgICAgNjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMxICAgMDowMCBbY2hhcmdlcl9tYW5hZ2VyXQpyb290ICAgICAgIDEwNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzEgICAwOjAwIFtzY3NpX2VoXzBdCnJvb3QgICAgICAgMTA2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozMSAgIDA6MDAgW2twc21vdXNlZF0Kcm9vdCAgICAgICAxMDcgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjMxICAgMDowMCBba3dvcmtlci91MjoyXQpyb290ICAgICAgIDEwOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzEgICAwOjAwIFtrd29ya2VyL3UyOjNdCnJvb3QgICAgICAgMTUzICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgW2piZDIvc2RhMS04XQpyb290ICAgICAgIDE1NCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtleHQ0LXJzdi1jb252ZXJdCnJvb3QgICAgICAgMzUzICAwLjAgIDAuMSAgMTk0NzIgICA1NDAgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgdXBzdGFydC11ZGV2LWJyaWRnZSAtLWRhZW1vbgpyb290ICAgICAgIDM1OCAgMC4wICAwLjIgIDQ5NjAwICAxMjU2ID8gICAgICAgIFNzICAgMTc6MzEgICAwOjAwIC9saWIvc3lzdGVtZC9zeXN0ZW1kLXVkZXZkIC0tZGFlbW9uCnJvb3QgICAgICAgMzg5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozMSAgIDA6MDAgW2lwcnRdCnJvb3QgICAgICAgNTA4ICAwLjAgIDAuMSAgMjM0MTYgICA5NDQgPyAgICAgICAgU3MgICAxNzozMSAgIDA6MDAgcnBjYmluZApzdGF0ZCAgICAgIDUyNSAgMC4wICAwLjIgIDIxNTQwICAxMTY0ID8gICAgICAgIFNzICAgMTc6MzEgICAwOjAwIHJwYy5zdGF0ZCAtTApyb290ICAgICAgIDUyOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzEgICAwOjAwIFtrd29ya2VyL3UzOjFdCnJvb3QgICAgICAgNTM5ICAwLjAgIDAuMSAgMTUyNTYgICA1NzIgPyAgICAgICAgUyAgICAxNzozMSAgIDA6MDAgdXBzdGFydC1zb2NrZXQtYnJpZGdlIC0tZGFlbW9uCnJvb3QgICAgICAgODEwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozMiAgIDA6MDAgW3JwY2lvZF0Kcm9vdCAgICAgICA4MjYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjMyICAgMDowMCBbbmZzaW9kXQptZXNzYWdlKyAgIDg0MiAgMC4wICAwLjIgIDM5MjEyICAxMDgwID8gICAgICAgIFNzICAgMTc6MzIgICAwOjAwIGRidXMtZGFlbW9uIC0tc3lzdGVtIC0tZm9yawpyb290ICAgICAgIDg2NSAgMC4wICAwLjAgIDI1NTQwICAgMzEyID8gICAgICAgIFNzICAgMTc6MzIgICAwOjAwIHJwYy5pZG1hcGQKcm9vdCAgICAgICA4OTAgIDAuMCAgMC4zICA0MzQ0OCAgMTU3MiA\/ICAgICAgICBTcyAgIDE3OjMyICAgMDowMCAvbGliL3N5c3RlbWQvc3lzdGVtZC1sb2dpbmQKc3lzbG9nICAgICA5MjIgIDAuMCAgMC4yIDI1NzkwOCAgMTI0NCA\/ICAgICAgICBTc2wgIDE3OjMyICAgMDowMCByc3lzbG9nZApyb290ICAgICAgIDk1OCAgMC4wICAwLjEgIDE1Mzk2ICAgNTY0ID8gICAgICAgIFMgICAgMTc6MzIgICAwOjAwIHVwc3RhcnQtZmlsZS1icmlkZ2UgLS1kYWVtb24Kcm9vdCAgICAgIDEwMTggIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHk0ICAgICBTcysgIDE3OjMyICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHk0CnJvb3QgICAgICAxMDIxICAwLjAgIDAuMSAgMTQ1MzYgICA4NzIgdHR5NSAgICAgU3MrICAxNzozMiAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5NQpyb290ICAgICAgMTAyNiAgMC4wICAwLjEgIDE0NTM2ICAgODY0IHR0eTIgICAgIFNzKyAgMTc6MzIgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTIKcm9vdCAgICAgIDEwMjcgIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHkzICAgICBTcysgIDE3OjMyICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHkzCnJvb3QgICAgICAxMDI5ICAwLjAgIDAuMSAgMTQ1MzYgICA4NjggdHR5NiAgICAgU3MrICAxNzozMiAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5Ngpyb290ICAgICAgMTA2NyAgMC4wICAwLjEgICA0MzY0ICAgNjIwID8gICAgICAgIFNzICAgMTc6MzIgICAwOjAwIGFjcGlkIC1jIC9ldGMvYWNwaS9ldmVudHMgLXMgL3Zhci9ydW4vYWNwaWQuc29ja2V0CnJvb3QgICAgICAxMDY4ICAwLjAgIDAuMSAgMjM2NTIgICA5ODggPyAgICAgICAgU3MgICAxNzozMiAgIDA6MDAgY3JvbgpkYWVtb24gICAgMTA2OSAgMC4wICAwLjAgIDE5MTM2ICAgMTYwID8gICAgICAgIFNzICAgMTc6MzIgICAwOjAwIGF0ZApyb290ICAgICAgMTA5OSAgMC4wICAwLjEgMjE2NjA4ICAgOTMyID8gICAgICAgIFNsICAgMTc6MzIgICAwOjAxIC91c3Ivc2Jpbi9WQm94U2VydmljZQpyb290ICAgICAgMTI1MCAgMC4wICA2LjcgMTgyNTM2IDMzNzg0ID8gICAgICAgIFNzbCAgMTc6MzIgICAwOjAwIC91c3IvYmluL3J1YnkgL3Vzci9iaW4vcHVwcGV0IGFnZW50CnJvb3QgICAgICAxMjgyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozMiAgIDA6MDAgW2thdWRpdGRdCnJvb3QgICAgICAxMzIwICAwLjAgIDYuOCAxMTI2ODggMzQ0NzIgPyAgICAgICAgU2wgICAxNzozMiAgIDA6MDAgcnVieSAvdXNyL2Jpbi9jaGVmLWNsaWVudCAtZCAtUCAvdmFyL3J1bi9jaGVmL2NsaWVudC5waWQgLWMgL2V0Yy9jaGVmL2NsaWVudC5yYiAtaSAxODAwIC1zIDIwIC1MIC92YXIvbG9nL2NoZWYvY2xpZW50LmxvZwpyb290ICAgICAgMTM2NiAgMC4wICAwLjEgIDE0NTM2ICAgODY4IHR0eTEgICAgIFNzKyAgMTc6MzIgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTEKcm9vdCAgICAgIDE4NzQgIDAuMCAgMC40ICAxMDIyMCAgMjI5NiA\/ICAgICAgICBTcyAgIDE3OjMyICAgMDowMCBkaGNsaWVudCAtMSAtdiAtcGYgL3J1bi9kaGNsaWVudC5ldGgwLnBpZCAtbGYgL3Zhci9saWIvZGhjcC9kaGNsaWVudC5ldGgwLmxlYXNlcyBldGgwCnJvb3QgICAgICAxOTQ4ICAwLjAgIDAuNCAgNjEzNjAgIDIzMDAgPyAgICAgICAgU3MgICAxNzozMiAgIDA6MDAgL3Vzci9zYmluL3NzaGQgLUQKcm9vdCAgICAgIDIxNzUgIDAuMCAgMC42IDEwNzY5MiAgMzM1MiA\/ICAgICAgICBTcyAgIDE3OjMyICAgMDowMCBzc2hkOiB2YWdyYW50IFtwcml2XQp2YWdyYW50ICAgMjIyOCAgMC4wICAwLjQgMTA3NjkyICAyMDg0ID8gICAgICAgIFMgICAgMTc6MzIgICAwOjAwIHNzaGQ6IHZhZ3JhbnRAcHRzLzAgCnZhZ3JhbnQgICAyMjI5ICAwLjAgIDAuNyAgMjE0MDQgIDM2NDQgcHRzLzAgICAgU3MgICAxNzozMiAgIDA6MDAgLWJhc2gKcm9vdCAgICAgIDIyNDUgIDAuMCAgMC4zICA2MzI0OCAgMTYyMCBwdHMvMCAgICBTICAgIDE3OjMyICAgMDowMCBzdSAtbApyb290ICAgICAgMjI1MCAgMC4wICAwLjcgIDIxMzI0ICAzNzMyIHB0cy8wICAgIFMrICAgMTc6MzIgICAwOjAwIC1zdQpudHAgICAgICAgMzA5OSAgMC4wICAwLjMgIDMzNTA0ICAxODk2ID8gICAgICAgIFNzICAgMTc6MzQgICAwOjAwIC91c3Ivc2Jpbi9udHBkIC1wIC92YXIvcnVuL250cGQucGlkIC1nIC11IDEwODoxMTMKcm9vdCAgICAgIDQ0MzAgIDAuMCAgMC44IDEwNzY5MiAgNDIyNCA\/ICAgICAgICBTcyAgIDE4OjMwICAgMDowMCBzc2hkOiB2YWdyYW50IFtwcml2XQp2YWdyYW50ICAgNDU0NiAgMC4wICAwLjQgMTA3NjkyICAyMTg0ID8gICAgICAgIFMgICAgMTg6MzAgICAwOjAwIHNzaGQ6IHZhZ3JhbnRAcHRzLzIgCnZhZ3JhbnQgICA0NTQ5ICAwLjAgIDAuNyAgMjE0MDAgIDM5NDAgcHRzLzIgICAgU3MgICAxODozMCAgIDA6MDAgLWJhc2gKcm9vdCAgICAgIDQ3ODEgIDAuMCAgMC4xICAgNDQ0MCAgIDY0NCA\/ICAgICAgICBTcyAgIDE3OjM0ICAgMDowMCAvYmluL3NoIC1lIC1jIC91c3IvYmluL2g0ZC13YXRjaGRvZyAgPj4gL3Zhci9sb2cvaDRkL3dhdGNoZG9nLmxvZyAvYmluL3NoCnJvb3QgICAgICA0NzgyICAwLjEgIDIuNSAyMzc0NTIgMTI4OTIgPyAgICAgICAgUyAgICAxNzozNCAgIDA6MDUgaDRkLXdhdGNoZG9nICAgICAgICAgICAgIApyb290ICAgICAgNDc5MCAgMC4wICAwLjEgICA0NDQwICAgNjQ4ID8gICAgICAgIFNzICAgMTc6MzQgICAwOjAwIC9iaW4vc2ggLWUgLWMgL3Vzci9iaW4vaDRkLW1ldHJpY3MgID4+IC92YXIvbG9nL2g0ZC9tZXRyaWNzLmxvZyAvYmluL3NoCnJvb3QgICAgICA0NzkxICAwLjEgIDIuMiAyMzI0MDAgMTE0MDggPyAgICAgICAgUyAgICAxNzozNCAgIDA6MDUgaDRkLW1ldHJpY3MgICAgICAgICAgICAgCnJvb3QgICAgICA1ODc5ICAwLjAgIDAuNiAgOTEyMTIgIDMyNDQgPyAgICAgICAgU3MgICAxNzozNSAgIDA6MDAgL3Vzci9zYmluL2FwYWNoZTIgLWsgc3RhcnQKd3d3LWRhdGEgIDU4ODIgIDAuMCAgMC41IDM4MDM4NCAgMjY1MiA\/ICAgICAgICBTbCAgIDE3OjM1ICAgMDowMSAvdXNyL3NiaW4vYXBhY2hlMiAtayBzdGFydAp3d3ctZGF0YSAgNTg4MyAgMC4wICAwLjUgMzgwMzg0ICAyNjUyID8gICAgICAgIFNsICAgMTc6MzUgICAwOjAxIC91c3Ivc2Jpbi9hcGFjaGUyIC1rIHN0YXJ0CnJvb3QgICAgIDMwMjczICAwLjAgIDAuMyAgNjMyNDggIDE4MzIgcHRzLzIgICAgUyAgICAxODozNiAgIDA6MDAgc3UgLWwKcm9vdCAgICAgMzAyNzQgIDAuMCAgMC43ICAyMTMyOCAgMzk0MCBwdHMvMiAgICBTKyAgIDE4OjM2ICAgMDowMCAtc3UKcm9vdCAgICAgMzAzNjIgIDAuMCAgMC4xICAgNDQ0MCAgIDY0NCA\/ICAgICAgICBTcyAgIDE4OjM4ICAgMDowMCAvYmluL3NoIC1lIC1jIC91c3IvYmluL2g0ZC1ycGMtc2VydmVyICA+PiAvdmFyL2xvZy9oNGQvcnBjLXNlcnZlci5sb2cgL2Jpbi9zaApyb290ICAgICAzMDM2MyAgMC4zICAzLjQgMjM4MzY0IDE3MjEyID8gICAgICAgIFMgICAgMTg6MzggICAwOjAwIGg0ZC1ycGMtc2VydmVyICAgICAgICAgICAgIApyb290ICAgICAzMDQyNCAgMi4wICAyLjYgMjM4ODEyIDEzNTEyID8gICAgICAgIFMgICAgMTg6MzggICAwOjAwIGg0ZC1ycGMtc2VydmVyICAgICAgICAgICAgIApyb290ICAgICAzMDQyNiAgMi4wICAyLjMgMjM3ODIwIDExODQ4ID8gICAgICAgIFMgICAgMTg6MzggICAwOjAwIGg0ZC1tZXRyaWNzICAgICAgICAgICAgIApyb290ICAgICAzMDQ0NiAgMC4wICAwLjEgICA0NDQwICAgNjQ0ID8gICAgICAgIFMgICAgMTg6MzkgICAwOjAwIHNoIC1jIC92YXIvdG1wLzE0NTY5NDM5MzktNWZhMjFiMDcxMWI2ZDJkYTRiZmQ5MzJjN2QyZWY4ZGIKcm9vdCAgICAgMzA0NDcgIDAuMCAgMC4yICAxNzk1NiAgMTQwOCA\/ICAgICAgICBTICAgIDE4OjM5ICAgMDowMCAvYmluL2Jhc2ggL3Zhci90bXAvMTQ1Njk0MzkzOS01ZmEyMWIwNzExYjZkMmRhNGJmZDkzMmM3ZDJlZjhkYgpyb290ICAgICAzMDQ0OCAgMC4wICAwLjIgIDE1NTY0ICAxMTY0ID8gICAgICAgIFIgICAgMTg6MzkgICAwOjAwIHBzIC1hdXgK",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T18:38:52+00:00",
-                    "updatedAt": "2016-03-02T18:38:53+00:00"
-                },
-                "8b5d73eb916af90efb5c0878c0a19709": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "8b5d73eb916af90efb5c0878c0a19709",
-                    "startDate": "2016-03-02T20:17:39+00:00",
-                    "endDate": "2016-03-02T20:17:40+00:00",
-                    "stdout": "VVNFUiAgICAgICBQSUQgJUNQVSAlTUVNICAgIFZTWiAgIFJTUyBUVFkgICAgICBTVEFUIFNUQVJUICAgVElNRSBDT01NQU5ECnJvb3QgICAgICAgICAxICAwLjAgIDAuNSAgMzM1ODQgIDI3NjQgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgL3NiaW4vaW5pdApyb290ICAgICAgICAgMiAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtrdGhyZWFkZF0Kcm9vdCAgICAgICAgIDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba3NvZnRpcnFkLzBdCnJvb3QgICAgICAgICA0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2t3b3JrZXIvMDowXQpyb290ICAgICAgICAgNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyLzA6MEhdCnJvb3QgICAgICAgICA3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDIgW3JjdV9zY2hlZF0Kcm9vdCAgICAgICAgIDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMiBbcmN1b3MvMF0Kcm9vdCAgICAgICAgIDkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBbcmN1X2JoXQpyb290ICAgICAgICAxMCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtyY3VvYi8wXQpyb290ICAgICAgICAxMSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFttaWdyYXRpb24vMF0Kcm9vdCAgICAgICAgMTIgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBbd2F0Y2hkb2cvMF0Kcm9vdCAgICAgICAgMTMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBba2hlbHBlcl0Kcm9vdCAgICAgICAgMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba2RldnRtcGZzXQpyb290ICAgICAgICAxNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtuZXRuc10Kcm9vdCAgICAgICAgMTYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbd3JpdGViYWNrXQpyb290ICAgICAgICAxNyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtraW50ZWdyaXR5ZF0Kcm9vdCAgICAgICAgMTggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbYmlvc2V0XQpyb290ICAgICAgICAxOSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UzOjBdCnJvb3QgICAgICAgIDIwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2tibG9ja2RdCnJvb3QgICAgICAgIDIxICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2F0YV9zZmZdCnJvb3QgICAgICAgIDIyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2todWJkXQpyb290ICAgICAgICAyMyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFttZF0Kcm9vdCAgICAgICAgMjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbZGV2ZnJlcV93cV0Kcm9vdCAgICAgICAgMjUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMiBba3dvcmtlci8wOjFdCnJvb3QgICAgICAgIDI2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2todW5ndGFza2RdCnJvb3QgICAgICAgIDI3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2tzd2FwZDBdCnJvb3QgICAgICAgIDI4ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgU04gICAxNzozOSAgIDA6MDAgW2tzbWRdCnJvb3QgICAgICAgIDI5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2Zzbm90aWZ5X21hcmtdCnJvb3QgICAgICAgIDMwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2VjcnlwdGZzLWt0aHJlYV0Kcm9vdCAgICAgICAgMzEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbY3J5cHRvXQpyb290ICAgICAgICA0MyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrdGhyb3RsZF0Kcm9vdCAgICAgICAgNjMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbZGVmZXJ3cV0Kcm9vdCAgICAgICAgNjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbY2hhcmdlcl9tYW5hZ2VyXQpyb290ICAgICAgIDEwNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtzY3NpX2VoXzBdCnJvb3QgICAgICAgMTA2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2twc21vdXNlZF0Kcm9vdCAgICAgICAxMDcgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba3dvcmtlci91MjoyXQpyb290ICAgICAgIDEwOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UyOjNdCnJvb3QgICAgICAgMTUzICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2piZDIvc2RhMS04XQpyb290ICAgICAgIDE1NCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtleHQ0LXJzdi1jb252ZXJdCnJvb3QgICAgICAgMzUzICAwLjAgIDAuMSAgMTk0NzIgICA1NDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgdXBzdGFydC11ZGV2LWJyaWRnZSAtLWRhZW1vbgpyb290ICAgICAgIDM1OCAgMC4wICAwLjIgIDQ5NjAwICAxMjU2ID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIC9saWIvc3lzdGVtZC9zeXN0ZW1kLXVkZXZkIC0tZGFlbW9uCnJvb3QgICAgICAgMzg5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2lwcnRdCnJvb3QgICAgICAgNTA4ICAwLjAgIDAuMSAgMjM0MTYgICA5NDQgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgcnBjYmluZApzdGF0ZCAgICAgIDUyNSAgMC4wICAwLjIgIDIxNTQwICAxMTY0ID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIHJwYy5zdGF0ZCAtTApyb290ICAgICAgIDUyOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UzOjFdCnJvb3QgICAgICAgNTM5ICAwLjAgIDAuMSAgMTUyNTYgICA1NzIgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgdXBzdGFydC1zb2NrZXQtYnJpZGdlIC0tZGFlbW9uCnJvb3QgICAgICAgODEwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW3JwY2lvZF0Kcm9vdCAgICAgICA4MjYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbbmZzaW9kXQptZXNzYWdlKyAgIDg0MiAgMC4wICAwLjIgIDM5MjEyICAxMDgwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGRidXMtZGFlbW9uIC0tc3lzdGVtIC0tZm9yawpyb290ICAgICAgIDg2NSAgMC4wICAwLjAgIDI1NTQwICAgMzEyID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIHJwYy5pZG1hcGQKcm9vdCAgICAgICA4OTAgIDAuMCAgMC4zICA0MzQ0OCAgMTU3MiA\/ICAgICAgICBTcyAgIDE3OjM5ICAgMDowMCAvbGliL3N5c3RlbWQvc3lzdGVtZC1sb2dpbmQKc3lzbG9nICAgICA5MjIgIDAuMCAgMC4yIDI1NzkwOCAgMTI0NCA\/ICAgICAgICBTc2wgIDE3OjM5ICAgMDowMCByc3lzbG9nZApyb290ICAgICAgIDk1OCAgMC4wICAwLjEgIDE1Mzk2ICAgNTY0ID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIHVwc3RhcnQtZmlsZS1icmlkZ2UgLS1kYWVtb24Kcm9vdCAgICAgIDEwMTggIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHk0ICAgICBTcysgIDE3OjM5ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHk0CnJvb3QgICAgICAxMDIxICAwLjAgIDAuMSAgMTQ1MzYgICA4NzIgdHR5NSAgICAgU3MrICAxNzozOSAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5NQpyb290ICAgICAgMTAyNiAgMC4wICAwLjEgIDE0NTM2ICAgODY0IHR0eTIgICAgIFNzKyAgMTc6MzkgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTIKcm9vdCAgICAgIDEwMjcgIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHkzICAgICBTcysgIDE3OjM5ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHkzCnJvb3QgICAgICAxMDI5ICAwLjAgIDAuMSAgMTQ1MzYgICA4NjggdHR5NiAgICAgU3MrICAxNzozOSAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5Ngpyb290ICAgICAgMTA2NyAgMC4wICAwLjEgICA0MzY0ICAgNjIwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGFjcGlkIC1jIC9ldGMvYWNwaS9ldmVudHMgLXMgL3Zhci9ydW4vYWNwaWQuc29ja2V0CnJvb3QgICAgICAxMDY4ICAwLjAgIDAuMSAgMjM2NTIgICA5OTIgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgY3JvbgpkYWVtb24gICAgMTA2OSAgMC4wICAwLjAgIDE5MTM2ICAgMTYwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGF0ZApyb290ICAgICAgMTA5OSAgMC4wICAwLjEgMjE2NjA4ICAgOTMyID8gICAgICAgIFNsICAgMTc6MzkgICAwOjAyIC91c3Ivc2Jpbi9WQm94U2VydmljZQpyb290ICAgICAgMTI1MCAgMC4wICA2LjcgMTgyNTM2IDMzNzg0ID8gICAgICAgIFNzbCAgMTc6MzkgICAwOjAwIC91c3IvYmluL3J1YnkgL3Vzci9iaW4vcHVwcGV0IGFnZW50CnJvb3QgICAgICAxMjgyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2thdWRpdGRdCnJvb3QgICAgICAxMzIwICAwLjAgIDYuOCAxMTI2ODggMzQ0NzIgPyAgICAgICAgU2wgICAxNzozOSAgIDA6MDAgcnVieSAvdXNyL2Jpbi9jaGVmLWNsaWVudCAtZCAtUCAvdmFyL3J1bi9jaGVmL2NsaWVudC5waWQgLWMgL2V0Yy9jaGVmL2NsaWVudC5yYiAtaSAxODAwIC1zIDIwIC1MIC92YXIvbG9nL2NoZWYvY2xpZW50LmxvZwpyb290ICAgICAgMTM2NiAgMC4wICAwLjEgIDE0NTM2ICAgODY4IHR0eTEgICAgIFNzKyAgMTc6MzkgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTEKcm9vdCAgICAgIDE4NzQgIDAuMCAgMC40ICAxMDIyMCAgMjI5NiA\/ICAgICAgICBTcyAgIDE3OjM5ICAgMDowMCBkaGNsaWVudCAtMSAtdiAtcGYgL3J1bi9kaGNsaWVudC5ldGgwLnBpZCAtbGYgL3Zhci9saWIvZGhjcC9kaGNsaWVudC5ldGgwLmxlYXNlcyBldGgwCnJvb3QgICAgICAxOTQ4ICAwLjAgIDAuNCAgNjEzNjAgIDIzMDAgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgL3Vzci9zYmluL3NzaGQgLUQKbnRwICAgICAgIDMwOTkgIDAuMCAgMC4zICAzMzUwNCAgMTkwMCA\/ICAgICAgICBTcyAgIDE3OjQxICAgMDowMCAvdXNyL3NiaW4vbnRwZCAtcCAvdmFyL3J1bi9udHBkLnBpZCAtZyAtdSAxMDg6MTEzCnJvb3QgICAgICA0NDMwICAwLjAgIDAuOCAxMDc2OTIgIDQyMjQgPyAgICAgICAgU3MgICAxODozOCAgIDA6MDAgc3NoZDogdmFncmFudCBbcHJpdl0KdmFncmFudCAgIDQ1NDYgIDAuMCAgMC40IDEwNzY5MiAgMjE4NCA\/ICAgICAgICBTICAgIDE4OjM4ICAgMDowMCBzc2hkOiB2YWdyYW50QHB0cy8yIAp2YWdyYW50ICAgNDU0OSAgMC4wICAwLjcgIDIxNDAwICAzOTQwIHB0cy8yICAgIFNzICAgMTg6MzggICAwOjAwIC1iYXNoCnJvb3QgICAgICA0NzgxICAwLjAgIDAuMSAgIDQ0NDAgICA2NDQgPyAgICAgICAgU3MgICAxNzo0MSAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtd2F0Y2hkb2cgID4+IC92YXIvbG9nL2g0ZC93YXRjaGRvZy5sb2cgL2Jpbi9zaApyb290ICAgICAgNDc4MiAgMC4xICAyLjUgMjM3NDUyIDEyODkyID8gICAgICAgIFMgICAgMTc6NDEgICAwOjA5IGg0ZC13YXRjaGRvZyAgICAgICAgICAgICAKcm9vdCAgICAgIDQ3OTAgIDAuMCAgMC4xICAgNDQ0MCAgIDY0OCA\/ICAgICAgICBTcyAgIDE3OjQxICAgMDowMCAvYmluL3NoIC1lIC1jIC91c3IvYmluL2g0ZC1tZXRyaWNzICA+PiAvdmFyL2xvZy9oNGQvbWV0cmljcy5sb2cgL2Jpbi9zaApyb290ICAgICAgNDc5MSAgMC4xICAyLjIgMjMyNDAwIDExNDA4ID8gICAgICAgIFMgICAgMTc6NDEgICAwOjA4IGg0ZC1tZXRyaWNzICAgICAgICAgICAgIApyb290ICAgICAgNTg3OSAgMC4wICAwLjYgIDkxMjEyICAzMjQ0ID8gICAgICAgIFNzICAgMTc6NDMgICAwOjAwIC91c3Ivc2Jpbi9hcGFjaGUyIC1rIHN0YXJ0Cnd3dy1kYXRhICA1ODgyICAwLjAgIDAuNSAzODAzODQgIDI2NTIgPyAgICAgICAgU2wgICAxNzo0MyAgIDA6MDIgL3Vzci9zYmluL2FwYWNoZTIgLWsgc3RhcnQKd3d3LWRhdGEgIDU4ODMgIDAuMCAgMC41IDM4MDM4NCAgMjY1MiA\/ICAgICAgICBTbCAgIDE3OjQzICAgMDowMiAvdXNyL3NiaW4vYXBhY2hlMiAtayBzdGFydApyb290ICAgICAzMDI3MyAgMC4wICAwLjMgIDYzMjQ4ICAxODMyIHB0cy8yICAgIFMgICAgMTg6NDQgICAwOjAwIHN1IC1sCnJvb3QgICAgIDMwMjc0ICAwLjAgIDAuNyAgMjEzMzYgIDM5NDggcHRzLzIgICAgUysgICAxODo0NCAgIDA6MDAgLXN1CnJvb3QgICAgIDMwMzYyICAwLjAgIDAuMSAgIDQ0NDAgICA2NDQgPyAgICAgICAgU3MgICAxODo0NiAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtcnBjLXNlcnZlciAgPj4gL3Zhci9sb2cvaDRkL3JwYy1zZXJ2ZXIubG9nIC9iaW4vc2gKcm9vdCAgICAgMzAzNjMgIDAuMCAgMy40IDIzODM2NCAxNzIyOCA\/ICAgICAgICBTICAgIDE4OjQ2ICAgMDowMCBoNGQtcnBjLXNlcnZlciAgICAgICAgICAgICAKcm9vdCAgICAgMzA0MjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ2ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1MDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ5ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1MjggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ5ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1OTkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjUzICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExMDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExNDAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2NzQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2ODAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2ODUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE3MTEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM2ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzI2MzUgIDAuMSAgMi42IDIzODgwMCAxMzUyMCA\/ICAgICAgICBTICAgIDIwOjA1ICAgMDowMCBoNGQtcnBjLXNlcnZlciAgICAgICAgICAgICAKcm9vdCAgICAgMzI2MzcgIDAuMCAgMC4xICAgNDQ0MCAgIDY0NCA\/ICAgICAgICBTICAgIDIwOjA1ICAgMDowMCBzaCAtYyAvdmFyL3RtcC8xNDU2OTQ5MTQzLTVmYTIxYjA3MTFiNmQyZGE0YmZkOTMyYzdkMmVmOGRiCnJvb3QgICAgIDMyNjM4ICAwLjAgIDAuMiAgMTc5NTYgIDE0MTYgPyAgICAgICAgUyAgICAyMDowNSAgIDA6MDAgL2Jpbi9iYXNoIC92YXIvdG1wLzE0NTY5NDkxNDMtNWZhMjFiMDcxMWI2ZDJkYTRiZmQ5MzJjN2QyZWY4ZGIKcm9vdCAgICAgMzI2MzkgIDAuMCAgMC4yICAxNTU2NCAgMTE2MCA\/ICAgICAgICBSICAgIDIwOjA1ICAgMDowMCBwcyAtYXV4Cg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T20:17:39+00:00",
-                    "updatedAt": "2016-03-02T20:17:40+00:00"
-                },
-                "04d79dae519f17b62444647dd8f969ef": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "04d79dae519f17b62444647dd8f969ef",
-                    "startDate": "2016-03-02T20:17:47+00:00",
-                    "endDate": "2016-03-02T20:17:48+00:00",
-                    "stdout": "VVNFUiAgICAgICBQSUQgJUNQVSAlTUVNICAgIFZTWiAgIFJTUyBUVFkgICAgICBTVEFUIFNUQVJUICAgVElNRSBDT01NQU5ECnJvb3QgICAgICAgICAxICAwLjAgIDAuNSAgMzM1ODQgIDI3NjQgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgL3NiaW4vaW5pdApyb290ICAgICAgICAgMiAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtrdGhyZWFkZF0Kcm9vdCAgICAgICAgIDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba3NvZnRpcnFkLzBdCnJvb3QgICAgICAgICA0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2t3b3JrZXIvMDowXQpyb290ICAgICAgICAgNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyLzA6MEhdCnJvb3QgICAgICAgICA3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDIgW3JjdV9zY2hlZF0Kcm9vdCAgICAgICAgIDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMiBbcmN1b3MvMF0Kcm9vdCAgICAgICAgIDkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBbcmN1X2JoXQpyb290ICAgICAgICAxMCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtyY3VvYi8wXQpyb290ICAgICAgICAxMSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFttaWdyYXRpb24vMF0Kcm9vdCAgICAgICAgMTIgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBbd2F0Y2hkb2cvMF0Kcm9vdCAgICAgICAgMTMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBba2hlbHBlcl0Kcm9vdCAgICAgICAgMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba2RldnRtcGZzXQpyb290ICAgICAgICAxNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtuZXRuc10Kcm9vdCAgICAgICAgMTYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbd3JpdGViYWNrXQpyb290ICAgICAgICAxNyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtraW50ZWdyaXR5ZF0Kcm9vdCAgICAgICAgMTggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbYmlvc2V0XQpyb290ICAgICAgICAxOSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UzOjBdCnJvb3QgICAgICAgIDIwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2tibG9ja2RdCnJvb3QgICAgICAgIDIxICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2F0YV9zZmZdCnJvb3QgICAgICAgIDIyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2todWJkXQpyb290ICAgICAgICAyMyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFttZF0Kcm9vdCAgICAgICAgMjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbZGV2ZnJlcV93cV0Kcm9vdCAgICAgICAgMjUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMiBba3dvcmtlci8wOjFdCnJvb3QgICAgICAgIDI2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2todW5ndGFza2RdCnJvb3QgICAgICAgIDI3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2tzd2FwZDBdCnJvb3QgICAgICAgIDI4ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgU04gICAxNzozOSAgIDA6MDAgW2tzbWRdCnJvb3QgICAgICAgIDI5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2Zzbm90aWZ5X21hcmtdCnJvb3QgICAgICAgIDMwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2VjcnlwdGZzLWt0aHJlYV0Kcm9vdCAgICAgICAgMzEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbY3J5cHRvXQpyb290ICAgICAgICA0MyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrdGhyb3RsZF0Kcm9vdCAgICAgICAgNjMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbZGVmZXJ3cV0Kcm9vdCAgICAgICAgNjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbY2hhcmdlcl9tYW5hZ2VyXQpyb290ICAgICAgIDEwNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtzY3NpX2VoXzBdCnJvb3QgICAgICAgMTA2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2twc21vdXNlZF0Kcm9vdCAgICAgICAxMDcgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba3dvcmtlci91MjoyXQpyb290ICAgICAgIDEwOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UyOjNdCnJvb3QgICAgICAgMTUzICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2piZDIvc2RhMS04XQpyb290ICAgICAgIDE1NCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtleHQ0LXJzdi1jb252ZXJdCnJvb3QgICAgICAgMzUzICAwLjAgIDAuMSAgMTk0NzIgICA1NDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgdXBzdGFydC11ZGV2LWJyaWRnZSAtLWRhZW1vbgpyb290ICAgICAgIDM1OCAgMC4wICAwLjIgIDQ5NjAwICAxMjU2ID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIC9saWIvc3lzdGVtZC9zeXN0ZW1kLXVkZXZkIC0tZGFlbW9uCnJvb3QgICAgICAgMzg5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2lwcnRdCnJvb3QgICAgICAgNTA4ICAwLjAgIDAuMSAgMjM0MTYgICA5NDQgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgcnBjYmluZApzdGF0ZCAgICAgIDUyNSAgMC4wICAwLjIgIDIxNTQwICAxMTY0ID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIHJwYy5zdGF0ZCAtTApyb290ICAgICAgIDUyOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UzOjFdCnJvb3QgICAgICAgNTM5ICAwLjAgIDAuMSAgMTUyNTYgICA1NzIgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgdXBzdGFydC1zb2NrZXQtYnJpZGdlIC0tZGFlbW9uCnJvb3QgICAgICAgODEwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW3JwY2lvZF0Kcm9vdCAgICAgICA4MjYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbbmZzaW9kXQptZXNzYWdlKyAgIDg0MiAgMC4wICAwLjIgIDM5MjEyICAxMDgwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGRidXMtZGFlbW9uIC0tc3lzdGVtIC0tZm9yawpyb290ICAgICAgIDg2NSAgMC4wICAwLjAgIDI1NTQwICAgMzEyID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIHJwYy5pZG1hcGQKcm9vdCAgICAgICA4OTAgIDAuMCAgMC4zICA0MzQ0OCAgMTU3MiA\/ICAgICAgICBTcyAgIDE3OjM5ICAgMDowMCAvbGliL3N5c3RlbWQvc3lzdGVtZC1sb2dpbmQKc3lzbG9nICAgICA5MjIgIDAuMCAgMC4yIDI1NzkwOCAgMTI0NCA\/ICAgICAgICBTc2wgIDE3OjM5ICAgMDowMCByc3lzbG9nZApyb290ICAgICAgIDk1OCAgMC4wICAwLjEgIDE1Mzk2ICAgNTY0ID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIHVwc3RhcnQtZmlsZS1icmlkZ2UgLS1kYWVtb24Kcm9vdCAgICAgIDEwMTggIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHk0ICAgICBTcysgIDE3OjM5ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHk0CnJvb3QgICAgICAxMDIxICAwLjAgIDAuMSAgMTQ1MzYgICA4NzIgdHR5NSAgICAgU3MrICAxNzozOSAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5NQpyb290ICAgICAgMTAyNiAgMC4wICAwLjEgIDE0NTM2ICAgODY0IHR0eTIgICAgIFNzKyAgMTc6MzkgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTIKcm9vdCAgICAgIDEwMjcgIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHkzICAgICBTcysgIDE3OjM5ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHkzCnJvb3QgICAgICAxMDI5ICAwLjAgIDAuMSAgMTQ1MzYgICA4NjggdHR5NiAgICAgU3MrICAxNzozOSAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5Ngpyb290ICAgICAgMTA2NyAgMC4wICAwLjEgICA0MzY0ICAgNjIwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGFjcGlkIC1jIC9ldGMvYWNwaS9ldmVudHMgLXMgL3Zhci9ydW4vYWNwaWQuc29ja2V0CnJvb3QgICAgICAxMDY4ICAwLjAgIDAuMSAgMjM2NTIgICA5OTIgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgY3JvbgpkYWVtb24gICAgMTA2OSAgMC4wICAwLjAgIDE5MTM2ICAgMTYwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGF0ZApyb290ICAgICAgMTA5OSAgMC4wICAwLjEgMjE2NjA4ICAgOTMyID8gICAgICAgIFNsICAgMTc6MzkgICAwOjAyIC91c3Ivc2Jpbi9WQm94U2VydmljZQpyb290ICAgICAgMTI1MCAgMC4wICA2LjcgMTgyNTM2IDMzNzg0ID8gICAgICAgIFNzbCAgMTc6MzkgICAwOjAwIC91c3IvYmluL3J1YnkgL3Vzci9iaW4vcHVwcGV0IGFnZW50CnJvb3QgICAgICAxMjgyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2thdWRpdGRdCnJvb3QgICAgICAxMzIwICAwLjAgIDYuOCAxMTI2ODggMzQ0NzIgPyAgICAgICAgU2wgICAxNzozOSAgIDA6MDAgcnVieSAvdXNyL2Jpbi9jaGVmLWNsaWVudCAtZCAtUCAvdmFyL3J1bi9jaGVmL2NsaWVudC5waWQgLWMgL2V0Yy9jaGVmL2NsaWVudC5yYiAtaSAxODAwIC1zIDIwIC1MIC92YXIvbG9nL2NoZWYvY2xpZW50LmxvZwpyb290ICAgICAgMTM2NiAgMC4wICAwLjEgIDE0NTM2ICAgODY4IHR0eTEgICAgIFNzKyAgMTc6MzkgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTEKcm9vdCAgICAgIDE4NzQgIDAuMCAgMC40ICAxMDIyMCAgMjI5NiA\/ICAgICAgICBTcyAgIDE3OjM5ICAgMDowMCBkaGNsaWVudCAtMSAtdiAtcGYgL3J1bi9kaGNsaWVudC5ldGgwLnBpZCAtbGYgL3Zhci9saWIvZGhjcC9kaGNsaWVudC5ldGgwLmxlYXNlcyBldGgwCnJvb3QgICAgICAxOTQ4ICAwLjAgIDAuNCAgNjEzNjAgIDIzMDAgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgL3Vzci9zYmluL3NzaGQgLUQKbnRwICAgICAgIDMwOTkgIDAuMCAgMC4zICAzMzUwNCAgMTkwMCA\/ICAgICAgICBTcyAgIDE3OjQxICAgMDowMCAvdXNyL3NiaW4vbnRwZCAtcCAvdmFyL3J1bi9udHBkLnBpZCAtZyAtdSAxMDg6MTEzCnJvb3QgICAgICA0NDMwICAwLjAgIDAuOCAxMDc2OTIgIDQyMjQgPyAgICAgICAgU3MgICAxODozOCAgIDA6MDAgc3NoZDogdmFncmFudCBbcHJpdl0KdmFncmFudCAgIDQ1NDYgIDAuMCAgMC40IDEwNzY5MiAgMjE4NCA\/ICAgICAgICBTICAgIDE4OjM4ICAgMDowMCBzc2hkOiB2YWdyYW50QHB0cy8yIAp2YWdyYW50ICAgNDU0OSAgMC4wICAwLjcgIDIxNDAwICAzOTQwIHB0cy8yICAgIFNzICAgMTg6MzggICAwOjAwIC1iYXNoCnJvb3QgICAgICA0NzgxICAwLjAgIDAuMSAgIDQ0NDAgICA2NDQgPyAgICAgICAgU3MgICAxNzo0MSAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtd2F0Y2hkb2cgID4+IC92YXIvbG9nL2g0ZC93YXRjaGRvZy5sb2cgL2Jpbi9zaApyb290ICAgICAgNDc4MiAgMC4xICAyLjUgMjM3NDUyIDEyODkyID8gICAgICAgIFMgICAgMTc6NDEgICAwOjA5IGg0ZC13YXRjaGRvZyAgICAgICAgICAgICAKcm9vdCAgICAgIDQ3OTAgIDAuMCAgMC4xICAgNDQ0MCAgIDY0OCA\/ICAgICAgICBTcyAgIDE3OjQxICAgMDowMCAvYmluL3NoIC1lIC1jIC91c3IvYmluL2g0ZC1tZXRyaWNzICA+PiAvdmFyL2xvZy9oNGQvbWV0cmljcy5sb2cgL2Jpbi9zaApyb290ICAgICAgNDc5MSAgMC4xICAyLjIgMjMyNDAwIDExNDA4ID8gICAgICAgIFMgICAgMTc6NDEgICAwOjA4IGg0ZC1tZXRyaWNzICAgICAgICAgICAgIApyb290ICAgICAgNTg3OSAgMC4wICAwLjYgIDkxMjEyICAzMjQ0ID8gICAgICAgIFNzICAgMTc6NDMgICAwOjAwIC91c3Ivc2Jpbi9hcGFjaGUyIC1rIHN0YXJ0Cnd3dy1kYXRhICA1ODgyICAwLjAgIDAuNSAzODAzODQgIDI2NTIgPyAgICAgICAgU2wgICAxNzo0MyAgIDA6MDIgL3Vzci9zYmluL2FwYWNoZTIgLWsgc3RhcnQKd3d3LWRhdGEgIDU4ODMgIDAuMCAgMC41IDM4MDM4NCAgMjY1MiA\/ICAgICAgICBTbCAgIDE3OjQzICAgMDowMiAvdXNyL3NiaW4vYXBhY2hlMiAtayBzdGFydApyb290ICAgICAzMDI3MyAgMC4wICAwLjMgIDYzMjQ4ICAxODMyIHB0cy8yICAgIFMgICAgMTg6NDQgICAwOjAwIHN1IC1sCnJvb3QgICAgIDMwMjc0ICAwLjAgIDAuNyAgMjEzMzYgIDM5NDggcHRzLzIgICAgUysgICAxODo0NCAgIDA6MDAgLXN1CnJvb3QgICAgIDMwMzYyICAwLjAgIDAuMSAgIDQ0NDAgICA2NDQgPyAgICAgICAgU3MgICAxODo0NiAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtcnBjLXNlcnZlciAgPj4gL3Zhci9sb2cvaDRkL3JwYy1zZXJ2ZXIubG9nIC9iaW4vc2gKcm9vdCAgICAgMzAzNjMgIDAuMCAgMy40IDIzODM2NCAxNzIyOCA\/ICAgICAgICBTICAgIDE4OjQ2ICAgMDowMCBoNGQtcnBjLXNlcnZlciAgICAgICAgICAgICAKcm9vdCAgICAgMzA0MjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ2ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1MDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ5ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1MjggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ5ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1OTkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjUzICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExMDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExNDAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2NzQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2ODAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2ODUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE3MTEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM2ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzI2MzUgIDAuMSAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDIwOjA1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzI2NDEgIDEuMCAgMi42IDIzODgwMCAxMzUxMiA\/ICAgICAgICBTICAgIDIwOjA1ICAgMDowMCBoNGQtcnBjLXNlcnZlciAgICAgICAgICAgICAKcm9vdCAgICAgMzI2NDMgIDAuMCAgMC4xICAgNDQ0MCAgIDY0OCA\/ICAgICAgICBTICAgIDIwOjA1ICAgMDowMCBzaCAtYyAvdmFyL3RtcC8xNDU2OTQ5MTU3LTVmYTIxYjA3MTFiNmQyZGE0YmZkOTMyYzdkMmVmOGRiCnJvb3QgICAgIDMyNjQ0ICAwLjAgIDAuMiAgMTc5NTYgIDE0MTYgPyAgICAgICAgUyAgICAyMDowNSAgIDA6MDAgL2Jpbi9iYXNoIC92YXIvdG1wLzE0NTY5NDkxNTctNWZhMjFiMDcxMWI2ZDJkYTRiZmQ5MzJjN2QyZWY4ZGIKcm9vdCAgICAgMzI2NDUgIDAuMCAgMC4yICAxNTU2NCAgMTE2MCA\/ICAgICAgICBSICAgIDIwOjA1ICAgMDowMCBwcyAtYXV4Cg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T20:17:47+00:00",
-                    "updatedAt": "2016-03-02T20:17:48+00:00"
-                },
-                "1bf1552ce90a79ac0d901d60369ed256": {
-                    "slave": "fi9CvJ-007",
-                    "executionToken": "1bf1552ce90a79ac0d901d60369ed256",
-                    "startDate": "2016-03-02T20:18:01+00:00",
-                    "endDate": "2016-03-02T20:18:02+00:00",
-                    "stdout": "VVNFUiAgICAgICBQSUQgJUNQVSAlTUVNICAgIFZTWiAgIFJTUyBUVFkgICAgICBTVEFUIFNUQVJUICAgVElNRSBDT01NQU5ECnJvb3QgICAgICAgICAxICAwLjAgIDAuNSAgMzM1ODQgIDI3NjQgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgL3NiaW4vaW5pdApyb290ICAgICAgICAgMiAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtrdGhyZWFkZF0Kcm9vdCAgICAgICAgIDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba3NvZnRpcnFkLzBdCnJvb3QgICAgICAgICA0ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2t3b3JrZXIvMDowXQpyb290ICAgICAgICAgNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyLzA6MEhdCnJvb3QgICAgICAgICA3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDIgW3JjdV9zY2hlZF0Kcm9vdCAgICAgICAgIDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMiBbcmN1b3MvMF0Kcm9vdCAgICAgICAgIDkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBbcmN1X2JoXQpyb290ICAgICAgICAxMCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtyY3VvYi8wXQpyb290ICAgICAgICAxMSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFttaWdyYXRpb24vMF0Kcm9vdCAgICAgICAgMTIgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBbd2F0Y2hkb2cvMF0Kcm9vdCAgICAgICAgMTMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBba2hlbHBlcl0Kcm9vdCAgICAgICAgMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba2RldnRtcGZzXQpyb290ICAgICAgICAxNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtuZXRuc10Kcm9vdCAgICAgICAgMTYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbd3JpdGViYWNrXQpyb290ICAgICAgICAxNyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtraW50ZWdyaXR5ZF0Kcm9vdCAgICAgICAgMTggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbYmlvc2V0XQpyb290ICAgICAgICAxOSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UzOjBdCnJvb3QgICAgICAgIDIwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2tibG9ja2RdCnJvb3QgICAgICAgIDIxICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2F0YV9zZmZdCnJvb3QgICAgICAgIDIyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2todWJkXQpyb290ICAgICAgICAyMyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFttZF0Kcm9vdCAgICAgICAgMjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbZGV2ZnJlcV93cV0Kcm9vdCAgICAgICAgMjUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMiBba3dvcmtlci8wOjFdCnJvb3QgICAgICAgIDI2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2todW5ndGFza2RdCnJvb3QgICAgICAgIDI3ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2tzd2FwZDBdCnJvb3QgICAgICAgIDI4ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgU04gICAxNzozOSAgIDA6MDAgW2tzbWRdCnJvb3QgICAgICAgIDI5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2Zzbm90aWZ5X21hcmtdCnJvb3QgICAgICAgIDMwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2VjcnlwdGZzLWt0aHJlYV0Kcm9vdCAgICAgICAgMzEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbY3J5cHRvXQpyb290ICAgICAgICA0MyAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrdGhyb3RsZF0Kcm9vdCAgICAgICAgNjMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbZGVmZXJ3cV0Kcm9vdCAgICAgICAgNjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbY2hhcmdlcl9tYW5hZ2VyXQpyb290ICAgICAgIDEwNSAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtzY3NpX2VoXzBdCnJvb3QgICAgICAgMTA2ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2twc21vdXNlZF0Kcm9vdCAgICAgICAxMDcgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTICAgIDE3OjM5ICAgMDowMCBba3dvcmtlci91MjoyXQpyb290ICAgICAgIDEwOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UyOjNdCnJvb3QgICAgICAgMTUzICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2piZDIvc2RhMS04XQpyb290ICAgICAgIDE1NCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtleHQ0LXJzdi1jb252ZXJdCnJvb3QgICAgICAgMzUzICAwLjAgIDAuMSAgMTk0NzIgICA1NDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgdXBzdGFydC11ZGV2LWJyaWRnZSAtLWRhZW1vbgpyb290ICAgICAgIDM1OCAgMC4wICAwLjIgIDQ5NjAwICAxMjU2ID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIC9saWIvc3lzdGVtZC9zeXN0ZW1kLXVkZXZkIC0tZGFlbW9uCnJvb3QgICAgICAgMzg5ICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW2lwcnRdCnJvb3QgICAgICAgNTA4ICAwLjAgIDAuMSAgMjM0MTYgICA5NDQgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgcnBjYmluZApzdGF0ZCAgICAgIDUyNSAgMC4wICAwLjIgIDIxNTQwICAxMTY0ID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIHJwYy5zdGF0ZCAtTApyb290ICAgICAgIDUyOCAgMC4wICAwLjAgICAgICAwICAgICAwID8gICAgICAgIFM8ICAgMTc6MzkgICAwOjAwIFtrd29ya2VyL3UzOjFdCnJvb3QgICAgICAgNTM5ICAwLjAgIDAuMSAgMTUyNTYgICA1NzIgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgdXBzdGFydC1zb2NrZXQtYnJpZGdlIC0tZGFlbW9uCnJvb3QgICAgICAgODEwICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUzwgICAxNzozOSAgIDA6MDAgW3JwY2lvZF0Kcm9vdCAgICAgICA4MjYgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBTPCAgIDE3OjM5ICAgMDowMCBbbmZzaW9kXQptZXNzYWdlKyAgIDg0MiAgMC4wICAwLjIgIDM5MjEyICAxMDgwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGRidXMtZGFlbW9uIC0tc3lzdGVtIC0tZm9yawpyb290ICAgICAgIDg2NSAgMC4wICAwLjAgIDI1NTQwICAgMzEyID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIHJwYy5pZG1hcGQKcm9vdCAgICAgICA4OTAgIDAuMCAgMC4zICA0MzQ0OCAgMTU3MiA\/ICAgICAgICBTcyAgIDE3OjM5ICAgMDowMCAvbGliL3N5c3RlbWQvc3lzdGVtZC1sb2dpbmQKc3lzbG9nICAgICA5MjIgIDAuMCAgMC4yIDI1NzkwOCAgMTI0NCA\/ICAgICAgICBTc2wgIDE3OjM5ICAgMDowMCByc3lzbG9nZApyb290ICAgICAgIDk1OCAgMC4wICAwLjEgIDE1Mzk2ICAgNTY0ID8gICAgICAgIFMgICAgMTc6MzkgICAwOjAwIHVwc3RhcnQtZmlsZS1icmlkZ2UgLS1kYWVtb24Kcm9vdCAgICAgIDEwMTggIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHk0ICAgICBTcysgIDE3OjM5ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHk0CnJvb3QgICAgICAxMDIxICAwLjAgIDAuMSAgMTQ1MzYgICA4NzIgdHR5NSAgICAgU3MrICAxNzozOSAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5NQpyb290ICAgICAgMTAyNiAgMC4wICAwLjEgIDE0NTM2ICAgODY0IHR0eTIgICAgIFNzKyAgMTc6MzkgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTIKcm9vdCAgICAgIDEwMjcgIDAuMCAgMC4xICAxNDUzNiAgIDg2NCB0dHkzICAgICBTcysgIDE3OjM5ICAgMDowMCAvc2Jpbi9nZXR0eSAtOCAzODQwMCB0dHkzCnJvb3QgICAgICAxMDI5ICAwLjAgIDAuMSAgMTQ1MzYgICA4NjggdHR5NiAgICAgU3MrICAxNzozOSAgIDA6MDAgL3NiaW4vZ2V0dHkgLTggMzg0MDAgdHR5Ngpyb290ICAgICAgMTA2NyAgMC4wICAwLjEgICA0MzY0ICAgNjIwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGFjcGlkIC1jIC9ldGMvYWNwaS9ldmVudHMgLXMgL3Zhci9ydW4vYWNwaWQuc29ja2V0CnJvb3QgICAgICAxMDY4ICAwLjAgIDAuMSAgMjM2NTIgICA5OTIgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgY3JvbgpkYWVtb24gICAgMTA2OSAgMC4wICAwLjAgIDE5MTM2ICAgMTYwID8gICAgICAgIFNzICAgMTc6MzkgICAwOjAwIGF0ZApyb290ICAgICAgMTA5OSAgMC4wICAwLjEgMjE2NjA4ICAgOTMyID8gICAgICAgIFNsICAgMTc6MzkgICAwOjAyIC91c3Ivc2Jpbi9WQm94U2VydmljZQpyb290ICAgICAgMTI1MCAgMC4wICA2LjcgMTgyNTM2IDMzNzg0ID8gICAgICAgIFNzbCAgMTc6MzkgICAwOjAwIC91c3IvYmluL3J1YnkgL3Vzci9iaW4vcHVwcGV0IGFnZW50CnJvb3QgICAgICAxMjgyICAwLjAgIDAuMCAgICAgIDAgICAgIDAgPyAgICAgICAgUyAgICAxNzozOSAgIDA6MDAgW2thdWRpdGRdCnJvb3QgICAgICAxMzIwICAwLjAgIDYuOCAxMTI2ODggMzQ0NzIgPyAgICAgICAgU2wgICAxNzozOSAgIDA6MDAgcnVieSAvdXNyL2Jpbi9jaGVmLWNsaWVudCAtZCAtUCAvdmFyL3J1bi9jaGVmL2NsaWVudC5waWQgLWMgL2V0Yy9jaGVmL2NsaWVudC5yYiAtaSAxODAwIC1zIDIwIC1MIC92YXIvbG9nL2NoZWYvY2xpZW50LmxvZwpyb290ICAgICAgMTM2NiAgMC4wICAwLjEgIDE0NTM2ICAgODY4IHR0eTEgICAgIFNzKyAgMTc6MzkgICAwOjAwIC9zYmluL2dldHR5IC04IDM4NDAwIHR0eTEKcm9vdCAgICAgIDE4NzQgIDAuMCAgMC40ICAxMDIyMCAgMjI5NiA\/ICAgICAgICBTcyAgIDE3OjM5ICAgMDowMCBkaGNsaWVudCAtMSAtdiAtcGYgL3J1bi9kaGNsaWVudC5ldGgwLnBpZCAtbGYgL3Zhci9saWIvZGhjcC9kaGNsaWVudC5ldGgwLmxlYXNlcyBldGgwCnJvb3QgICAgICAxOTQ4ICAwLjAgIDAuNCAgNjEzNjAgIDIzMDAgPyAgICAgICAgU3MgICAxNzozOSAgIDA6MDAgL3Vzci9zYmluL3NzaGQgLUQKbnRwICAgICAgIDMwOTkgIDAuMCAgMC4zICAzMzUwNCAgMTkwMCA\/ICAgICAgICBTcyAgIDE3OjQxICAgMDowMCAvdXNyL3NiaW4vbnRwZCAtcCAvdmFyL3J1bi9udHBkLnBpZCAtZyAtdSAxMDg6MTEzCnJvb3QgICAgICA0NDMwICAwLjAgIDAuOCAxMDc2OTIgIDQyMjQgPyAgICAgICAgU3MgICAxODozOCAgIDA6MDAgc3NoZDogdmFncmFudCBbcHJpdl0KdmFncmFudCAgIDQ1NDYgIDAuMCAgMC40IDEwNzY5MiAgMjE4NCA\/ICAgICAgICBTICAgIDE4OjM4ICAgMDowMCBzc2hkOiB2YWdyYW50QHB0cy8yIAp2YWdyYW50ICAgNDU0OSAgMC4wICAwLjcgIDIxNDAwICAzOTQwIHB0cy8yICAgIFNzICAgMTg6MzggICAwOjAwIC1iYXNoCnJvb3QgICAgICA0NzgxICAwLjAgIDAuMSAgIDQ0NDAgICA2NDQgPyAgICAgICAgU3MgICAxNzo0MSAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtd2F0Y2hkb2cgID4+IC92YXIvbG9nL2g0ZC93YXRjaGRvZy5sb2cgL2Jpbi9zaApyb290ICAgICAgNDc4MiAgMC4xICAyLjUgMjM3NDUyIDEyODkyID8gICAgICAgIFMgICAgMTc6NDEgICAwOjA5IGg0ZC13YXRjaGRvZyAgICAgICAgICAgICAKcm9vdCAgICAgIDQ3OTAgIDAuMCAgMC4xICAgNDQ0MCAgIDY0OCA\/ICAgICAgICBTcyAgIDE3OjQxICAgMDowMCAvYmluL3NoIC1lIC1jIC91c3IvYmluL2g0ZC1tZXRyaWNzICA+PiAvdmFyL2xvZy9oNGQvbWV0cmljcy5sb2cgL2Jpbi9zaApyb290ICAgICAgNDc5MSAgMC4xICAyLjIgMjMyNDAwIDExNDA4ID8gICAgICAgIFMgICAgMTc6NDEgICAwOjA4IGg0ZC1tZXRyaWNzICAgICAgICAgICAgIApyb290ICAgICAgNTg3OSAgMC4wICAwLjYgIDkxMjEyICAzMjQ0ID8gICAgICAgIFNzICAgMTc6NDMgICAwOjAwIC91c3Ivc2Jpbi9hcGFjaGUyIC1rIHN0YXJ0Cnd3dy1kYXRhICA1ODgyICAwLjAgIDAuNSAzODAzODQgIDI2NTIgPyAgICAgICAgU2wgICAxNzo0MyAgIDA6MDIgL3Vzci9zYmluL2FwYWNoZTIgLWsgc3RhcnQKd3d3LWRhdGEgIDU4ODMgIDAuMCAgMC41IDM4MDM4NCAgMjY1MiA\/ICAgICAgICBTbCAgIDE3OjQzICAgMDowMiAvdXNyL3NiaW4vYXBhY2hlMiAtayBzdGFydApyb290ICAgICAzMDI3MyAgMC4wICAwLjMgIDYzMjQ4ICAxODMyIHB0cy8yICAgIFMgICAgMTg6NDQgICAwOjAwIHN1IC1sCnJvb3QgICAgIDMwMjc0ICAwLjAgIDAuNyAgMjEzMzYgIDM5NDggcHRzLzIgICAgUysgICAxODo0NCAgIDA6MDAgLXN1CnJvb3QgICAgIDMwMzYyICAwLjAgIDAuMSAgIDQ0NDAgICA2NDQgPyAgICAgICAgU3MgICAxODo0NiAgIDA6MDAgL2Jpbi9zaCAtZSAtYyAvdXNyL2Jpbi9oNGQtcnBjLXNlcnZlciAgPj4gL3Zhci9sb2cvaDRkL3JwYy1zZXJ2ZXIubG9nIC9iaW4vc2gKcm9vdCAgICAgMzAzNjMgIDAuMCAgMy40IDIzODM2NCAxNzIyOCA\/ICAgICAgICBTICAgIDE4OjQ2ICAgMDowMCBoNGQtcnBjLXNlcnZlciAgICAgICAgICAgICAKcm9vdCAgICAgMzA0MjQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ2ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1MDMgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ5ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1MjggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjQ5ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzA1OTkgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE4OjUzICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExMDggIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExMTQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzExNDAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjExICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2NzQgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2ODAgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE2ODUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzE3MTEgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDE5OjM2ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzI2MzUgIDAuMCAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDIwOjA1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzI2NDEgIDAuMSAgMC4wICAgICAgMCAgICAgMCA\/ICAgICAgICBaICAgIDIwOjA1ICAgMDowMCBbcGhwXSA8ZGVmdW5jdD4Kcm9vdCAgICAgMzI2NjYgIDEuMCAgMi42IDIzODgwMCAxMzUxMiA\/ICAgICAgICBTICAgIDIwOjA2ICAgMDowMCBoNGQtcnBjLXNlcnZlciAgICAgICAgICAgICAKcm9vdCAgICAgMzI2NjggIDAuMCAgMC4xICAgNDQ0MCAgIDY0OCA\/ICAgICAgICBTICAgIDIwOjA2ICAgMDowMCBzaCAtYyAvdmFyL3RtcC8xNDU2OTQ5MTcxLTVmYTIxYjA3MTFiNmQyZGE0YmZkOTMyYzdkMmVmOGRiCnJvb3QgICAgIDMyNjY5ICAwLjAgIDAuMiAgMTc5NTYgIDE0MTIgPyAgICAgICAgUyAgICAyMDowNiAgIDA6MDAgL2Jpbi9iYXNoIC92YXIvdG1wLzE0NTY5NDkxNzEtNWZhMjFiMDcxMWI2ZDJkYTRiZmQ5MzJjN2QyZWY4ZGIKcm9vdCAgICAgMzI2NzAgIDAuMCAgMC4yICAxNTU2NCAgMTE1NiA\/ICAgICAgICBSICAgIDIwOjA2ICAgMDowMCBwcyAtYXV4Cg==",
-                    "stderr": "",
-                    "terminationCode": 0,
-                    "status": "COMPLETED",
-                    "createdAt": "2016-03-02T20:18:01+00:00",
-                    "updatedAt": "2016-03-02T20:18:02+00:00"
-                }
-            }
-        }
-    }
+    "data": []
 }
 ```
 
@@ -1968,13 +1849,50 @@ Get user snippets execution queue.
 `GET  /v1/snippets/execution-queue`
 
 
+## Mark a snippet execution as viewed.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/snippet/:token/viewed" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","token":"f322f17ecf893073c3f8074bad4042cd"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->markSnippetExecutionAsViewed($server,$token);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Mark a snippet execution as viewed.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/snippet/:token/viewed`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+token | true | Snippet token | string | - | -
+
 ## Update the snippet indetified by token.
 ```shell
 curl "https://api.hosting4devs.com/v1/snippet/:token" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"token":"token","title":"title","code":"code","interpreter":"interpreter","visibility":"visibility","notes":"notes"}'
+-d '{"token":"8e87a554c345512d819130bbaf8a4556","title":"Update PHP versions","code":"apt-get update\r\napt-get install -y h4d-php-7\r\napt-get install -y h4d-php-5.6\r\napt-get install -y h4d-php-5.5","interpreter":"BASH","visibility":"PRIVATE","notes":""}'
 ```
 
 ```php
@@ -1985,7 +1903,11 @@ $response = $client->updateSnippet($token,$title,$code,$interpreter,$visibility,
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
 ```
 
 Update the snippet indetified by token.
@@ -2015,7 +1937,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/snippet/:token" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"fi9CvJ-016","token":"f2afce36b66d58bc4d704a3037b503ea"}'
+-d '{"server":"mYSeRvEr-Id","token":"8cfb6ea983807b096ed07cc4f559fce9"}'
 ```
 
 ```php
@@ -2027,9 +1949,9 @@ $response = $client->executeSnippet($server,$token);
 
 ```json
 {
-    "code": 20000,
-    "message": "Execution error!",
-    "data": []
+    "code": 10000,
+    "message": "Success!",
+    "data": "dcfd024aadb76d649f2ee62c01cd95e7"
 }
 ```
 
@@ -2053,12 +1975,12 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain" \
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"fi9CvJ-016","domain":"test.com","alias":"www.test.com","mailEnable":false,"processManager":"php-7","password":"23234324234123"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","alias":"example.com","mailEnable":false,"processManager":"php-5.6","password":"*******","webRoot":"www"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->createHosting($server,$domain,$alias,$mailEnable,$processManager,$password);
+$response = $client->createHosting($server,$domain,$alias,$mailEnable,$processManager,$password,$webRoot);
 ```
 
 > The above command returns JSON structured like this:
@@ -2092,13 +2014,14 @@ alias | false | Alias | string | - |
 mailEnable | true | Enable mail service | boolean | [true,false] | 1
 processManager | true | Process manager which handles requests | enum | ["php-5.5","php-5.6","php-7"] | php-5.5
 password | false | Password | string | - | 
+webRoot | false | Web document root | string | - | htdocs
 ## Change hosting password.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/pass" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","password":"qweasd123"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","password":"*******"}'
 ```
 
 ```php
@@ -2140,7 +2063,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/info/disk-u
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -2151,15 +2074,7 @@ $response = $client->getHostingTotalDiskUsage($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "size": "36",
-        "unit": "KB",
-        "path": "\/home\/test-000.com"
-    }
-}
+null
 ```
 
 Get hosting total disk usage.
@@ -2181,7 +2096,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/info/disk-u
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","deep":"3"}'
+-d '{"server":"server","domain":"domain","deep":"deep"}'
 ```
 
 ```php
@@ -2192,37 +2107,7 @@ $response = $client->getHostingDiskUsageSummary($server,$domain,$deep);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": [
-        {
-            "size": "4.0",
-            "unit": "KB",
-            "path": "\/home\/test-000.com\/Maildir"
-        },
-        {
-            "size": "4.0",
-            "unit": "KB",
-            "path": "\/home\/test-000.com\/logs"
-        },
-        {
-            "size": "4.0",
-            "unit": "KB",
-            "path": "\/home\/test-000.com\/.ssh"
-        },
-        {
-            "size": "8.0",
-            "unit": "KB",
-            "path": "\/home\/test-000.com\/htdocs"
-        },
-        {
-            "size": "36",
-            "unit": "KB",
-            "path": "\/home\/test-000.com"
-        }
-    ]
-}
+null
 ```
 
 Get hosting disk usage summary.
@@ -2245,7 +2130,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/info" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
 ```
 
 ```php
@@ -2260,15 +2145,15 @@ $response = $client->getHostingDetailedInformation($server,$domain);
     "code": 10000,
     "message": "Success!",
     "data": {
-        "domain": "test-000.com",
+        "domain": "example.com",
         "status": "enable",
-        "alias": "My test-domain.com alias",
+        "alias": "www.example.com",
         "ip": "*",
-        "documentRoot": "\/home\/test-000.com\/htdocs",
+        "documentRoot": "\/home\/example.com\/htdocs",
         "description": null,
-        "logDir": "\/home\/test-000.com\/logs",
-        "server": "apache",
-        "processManager": "php-5.5",
+        "logDir": "\/home\/example.com\/logs",
+        "server": "mYSeRvEr-Id",
+        "processManager": "php-5.6",
         "processManagerOptions": [],
         "sslEnable": "disable",
         "mailEnable": "enable",
@@ -2281,11 +2166,12 @@ $response = $client->getHostingDetailedInformation($server,$domain);
             "hard": 0,
             "unit": "KB"
         },
-        "created": "2016-04-22T16:57:17+0000",
-        "modified": "2016-04-22T16:57:17+0000",
+        "created": "2017-03-25T14:40:21+0000",
+        "modified": "2017-04-16T14:57:54+0000",
         "systemUser": {
-            "username": "test-000com",
-            "homeDir": "\/home\/test-000.com"
+            "username": "username",
+            "homeDir": "\/home\/example.com",
+            "sshPubKey": ""
         },
         "mail": {
             "status": "enable",
@@ -2297,13 +2183,13 @@ $response = $client->getHostingDetailedInformation($server,$domain);
                 "max": 0,
                 "count": 0
             },
-            "mailDir": "\/home\/test-000.com\/Maildir",
-            "created": "2016-04-22T16:57:17+0000",
-            "modified": "2016-04-22T16:57:19+0000",
+            "mailDir": "\/home\/example.com\/Maildir",
+            "created": "2017-04-16T14:57:54+0000",
+            "modified": "2017-08-03T17:17:32+0000",
             "antispam": {
                 "status": "enabled",
-                "required_score": "10",
-                "subject_tag": "test-tag"
+                "required_score": "10.0",
+                "subject_tag": "[SPAM]"
             }
         },
         "db": {
@@ -2316,7 +2202,8 @@ $response = $client->getHostingDetailedInformation($server,$domain);
             }
         },
         "sshKeys": [],
-        "sslInfo": []
+        "sslInfo": [],
+        "gitDeploy": []
     }
 }
 ```
@@ -2340,7 +2227,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/quota" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -2351,16 +2238,7 @@ $response = $client->getHostingQuota($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "active": false,
-        "soft": 0,
-        "hard": 0,
-        "unit": "KB"
-    }
-}
+null
 ```
 
 Get hosting quota.
@@ -2382,7 +2260,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/status" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -2393,11 +2271,7 @@ $response = $client->getHostingStatus($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "enable"
-}
+null
 ```
 
 Get hosting status.
@@ -2419,7 +2293,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ftp/status"
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -2430,11 +2304,7 @@ $response = $client->getHostingFTPStatus($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "enable"
-}
+null
 ```
 
 Get hosting FTP status.
@@ -2456,7 +2326,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ftp/status"
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","status":"enable"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","status":"disable"}'
 ```
 
 ```php
@@ -2498,7 +2368,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
 ```
 
 ```php
@@ -2524,13 +2394,13 @@ $response = $client->getHostingMailServiceDetailedInformation($server,$domain);
             "count": 0,
             "items": []
         },
-        "mailDir": "\/home\/test-000.com\/Maildir",
-        "created": "2016-04-22T16:57:17+0000",
-        "modified": "2016-04-22T16:57:22+0000",
+        "mailDir": "\/home\/example.com\/Maildir",
+        "created": "2017-04-16T14:57:54+0000",
+        "modified": "2017-07-15T15:42:25+0000",
         "antispam": {
             "status": "enabled",
-            "required_score": "10",
-            "subject_tag": "test-tag",
+            "required_score": "10.0",
+            "subject_tag": "[SPAM]",
             "list": []
         }
     }
@@ -2556,7 +2426,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","value":"black-list-domain.com"}'
+-d '{"server":"server","domain":"domain","value":"value"}'
 ```
 
 ```php
@@ -2567,11 +2437,7 @@ $response = $client->addHostingToBlackList($server,$domain,$value);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Add a domain to black list.
@@ -2598,7 +2464,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","value":"white-list-domain.com"}'
+-d '{"server":"server","domain":"domain","value":"value"}'
 ```
 
 ```php
@@ -2609,11 +2475,7 @@ $response = $client->addHostingToWhiteList($server,$domain,$value);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Add a domain to white list.
@@ -2640,7 +2502,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","value":"black-list-domain.com"}'
+-d '{"server":"server","domain":"domain","value":"value"}'
 ```
 
 ```php
@@ -2651,11 +2513,7 @@ $response = $client->deleteHostingFromBlackList($server,$domain,$value);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Delete a domain from black list.
@@ -2682,7 +2540,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","value":"white-list-domain.com"}'
+-d '{"server":"server","domain":"domain","value":"value"}'
 ```
 
 ```php
@@ -2693,11 +2551,7 @@ $response = $client->deleteHostingFromWhiteList($server,$domain,$value);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Delete a domain from white list.
@@ -2724,7 +2578,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -2735,15 +2589,7 @@ $response = $client->getHostingSpamassassinPreferences($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "status": "enabled",
-        "required_score": "10",
-        "subject_tag": "test-tag"
-    }
-}
+null
 ```
 
 Get hosting spamassassin preferences.
@@ -2765,7 +2611,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","type":"black"}'
+-d '{"server":"server","domain":"domain","type":"type"}'
 ```
 
 ```php
@@ -2776,11 +2622,7 @@ $response = $client->getHostingAntispamList($server,$domain,$type);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": []
-}
+null
 ```
 
 Get hosting antispam list.
@@ -2803,7 +2645,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/antisp
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","score":"10","tag":"test-tag"}'
+-d '{"server":"server","domain":"domain","score":"score","tag":"tag"}'
 ```
 
 ```php
@@ -2814,11 +2656,7 @@ $response = $client->setHostingSpamassassinPreferences($server,$domain,$score,$t
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set hosting spamassassin preferences.
@@ -2846,7 +2684,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","password":"qweasd123","name":"Test Name","altEmail":"alt@mail.com","quota":"0"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","username":"edu","password":"*******","name":"Edu Salguero","altEmail":"mail@example.com","quota":"0"}'
 ```
 
 ```php
@@ -2892,7 +2730,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+-d '{"server":"server","domain":"domain","username":"username"}'
 ```
 
 ```php
@@ -2903,23 +2741,7 @@ $response = $client->getMailboxInfo($server,$domain,$username);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "altEmail": "alt@mail.com",
-        "username": "test_user@test-000.com",
-        "status": "enable",
-        "name": "Test Name",
-        "localPart": "test_user",
-        "quota": {
-            "active": false,
-            "size": "0"
-        },
-        "created": "2016-04-22T16:57:25+0000",
-        "modified": "2016-04-22T16:57:25+0000"
-    }
-}
+null
 ```
 
 Get mailbox info.
@@ -2942,7 +2764,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","password":"qweasd123"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","username":"edu","password":"*******"}'
 ```
 
 ```php
@@ -2985,7 +2807,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","size":"0"}'
+-d '{"server":"server","domain":"domain","username":"username","size":"size"}'
 ```
 
 ```php
@@ -2996,11 +2818,7 @@ $response = $client->setMailboxQuota($server,$domain,$username,$size);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set mailbox quota.
@@ -3028,7 +2846,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","status":"enable"}'
+-d '{"server":"server","domain":"domain","username":"username","status":"status"}'
 ```
 
 ```php
@@ -3039,11 +2857,7 @@ $response = $client->setMailboxStatus($server,$domain,$username,$status);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set mailbox status.
@@ -3071,7 +2885,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","goto":"test@mail.com"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","username":"edu","goto":"mail@example.com"}'
 ```
 
 ```php
@@ -3114,7 +2928,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+-d '{"server":"server","domain":"domain","username":"username"}'
 ```
 
 ```php
@@ -3125,17 +2939,7 @@ $response = $client->getMailboxAliasInfo($server,$domain,$username);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": {
-        "address": "test_user@test-000.com",
-        "goto": "test@mail.com",
-        "status": "enable",
-        "created": "2016-04-22T16:57:28+0000",
-        "modified": "2016-04-22T16:57:28+0000"
-    }
-}
+null
 ```
 
 Get mailbox alias info.
@@ -3158,7 +2962,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","status":"enable"}'
+-d '{"server":"server","domain":"domain","username":"username","status":"status"}'
 ```
 
 ```php
@@ -3169,11 +2973,7 @@ $response = $client->setMailboxAliasStatus($server,$domain,$username,$status);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set mailbox alias status.
@@ -3201,7 +3001,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+-d '{"server":"server","domain":"domain","username":"username"}'
 ```
 
 ```php
@@ -3212,11 +3012,7 @@ $response = $client->deleteMailboxAlias($server,$domain,$username);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Delete a mailbox alias.
@@ -3239,7 +3035,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mailbox/:us
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+-d '{"server":"server","domain":"domain","username":"username"}'
 ```
 
 ```php
@@ -3250,11 +3046,7 @@ $response = $client->deleteMailbox($server,$domain,$username);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Delete a mailbox.
@@ -3277,7 +3069,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/aliase
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -3288,11 +3080,7 @@ $response = $client->getMailboxesAliases($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": []
-}
+null
 ```
 
 Get mailboxes aliases.
@@ -3314,7 +3102,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/mailbo
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -3325,11 +3113,7 @@ $response = $client->getHostingMailboxes($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": []
-}
+null
 ```
 
 Get hosting mailboxes.
@@ -3351,7 +3135,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/status
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -3362,11 +3146,7 @@ $response = $client->getHostingMailServiceStatus($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "enable"
-}
+null
 ```
 
 Get hosting mail service status.
@@ -3388,7 +3168,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mail/status
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","status":"enable"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","status":"enable"}'
 ```
 
 ```php
@@ -3430,7 +3210,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
 ```
 
 ```php
@@ -3449,12 +3229,31 @@ $response = $client->getHostingMySQLDetailedInfo($server,$domain);
             "mysql": "enabled"
         },
         "count": {
-            "users": 0,
-            "dbs": 0
+            "users": 1,
+            "dbs": 1
         },
         "items": {
-            "users": [],
-            "dbs": []
+            "users": {
+                "4": {
+                    "username": "username",
+                    "description": "Usuario para a BD da web de probas de Curtocircuito",
+                    "created": "2017-06-21T14:37:24+0000",
+                    "modified": "2017-06-21T14:37:24+0000",
+                    "type": "mysql"
+                }
+            },
+            "dbs": [
+                {
+                    "database": "curtocircuito",
+                    "databaseDir": "\/home\/example.com\/.db_mysql\/curtocircuito",
+                    "accessHost": "%",
+                    "description": "Base de datos da web de probas de Curtocircuito",
+                    "created": "2017-06-21T14:38:20+0000",
+                    "modified": "2017-06-21T14:38:20+0000",
+                    "type": "mysql",
+                    "user": "curto"
+                }
+            ]
         }
     }
 }
@@ -3479,7 +3278,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/user"
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","password":"qweasd123","description":"test description"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","username":"username","password":"*******","description":"Usuario para a BD da web de probas de Curtocircuito"}'
 ```
 
 ```php
@@ -3523,7 +3322,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/user/
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user","password":"qweasd123"}'
+-d '{"server":"server","domain":"domain","username":"username","password":"password"}'
 ```
 
 ```php
@@ -3534,11 +3333,7 @@ $response = $client->changeMySQLUserPassword($server,$domain,$username,$password
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Change MySQL user password.
@@ -3566,7 +3361,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db" \
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database","username":"test_user","dbDescription":"database description"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","database":"curtocircuito","username":"username","dbDescription":"Base de datos da web de probas de Curtocircuito"}'
 ```
 
 ```php
@@ -3610,7 +3405,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","database":"numax_test"}'
 ```
 
 ```php
@@ -3652,7 +3447,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/user/
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","username":"test_user"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","username":"numax_test"}'
 ```
 
 ```php
@@ -3690,7 +3485,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/mysql/db-an
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","database":"test_database","dbDescription":"database description","username":"test_user_ddbb","password":"qweasd123","userDescription":"user description"}'
+-d '{"server":"server","domain":"domain","database":"database","dbDescription":"dbDescription","username":"username","password":"password","userDescription":"userDescription"}'
 ```
 
 ```php
@@ -3701,11 +3496,7 @@ $response = $client->createMySQLDatabaseAndUser($server,$domain,$database,$dbDes
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Create new MySQL database and user.
@@ -3736,7 +3527,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/quota" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","size":"0"}'
+-d '{"server":"server","domain":"domain","size":"size"}'
 ```
 
 ```php
@@ -3747,11 +3538,7 @@ $response = $client->setHostingQuota($server,$domain,$size);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set hosting quota.
@@ -3778,7 +3565,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/status" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","status":"disable"}'
+-d '{"server":"server","domain":"domain","status":"status"}'
 ```
 
 ```php
@@ -3789,11 +3576,7 @@ $response = $client->setHostingStatus($server,$domain,$status);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": true
-}
+null
 ```
 
 Set hosting status.
@@ -3820,7 +3603,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/auth-mo
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -3831,11 +3614,7 @@ $response = $client->getHostingSSHAuthMode($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "password"
-}
+null
 ```
 
 Get hosting SSH auth mode.
@@ -3857,7 +3636,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/status"
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -3868,11 +3647,7 @@ $response = $client->getHostingSSHStatus($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "enable"
-}
+null
 ```
 
 Get hosting SSH status.
@@ -3894,7 +3669,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/key" \
 -X POST \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"server","domain":"domain","keyBase64":"keyBase64","description":"description"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","keyBase64":"c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFDQVFDNzI4cXpSbXpTdko0VG5hVUgzRktaTVMwYUJXWi9VQ2FpSk40OXhIR0ZqKzQ0bWtRTzZUN1dPVjdvSENtekxKajBPZ2Y0NnJYY2E5bnRyWENSUXNma29FRWI4SVFneVFIendsZnNuT1hxa05uOGd3YnRLdS9kcXRmQlZzK1d1N0ZRc2JONi9ISW5JbWUxdzVJd284L3pkbWc4T3haZC9EaHBqUUdpYXdpTnoxMEhmNXNaRmxRZjMyNDhONjN6b3MxVVF1NFFPNVVHMzhhRy9iRGcyS1ZLSVI2SXdOQUhZTUFIVVBsY2pLTEVHYWFSY2Q3VmswSGl2Vk1pSlB5Sm8vWW8rYjh0OHg1eXlmajkwb1ZUV1FpT243K1JhRnZCSnFhb0o5ZWFSeEI3VHQ3aDJncm5lQXZ0SHp6QnFPbkg2dE5sQ0ZPa2FYUmg2TkxnUHZnRDZYRkswS1dkbVJkSVVZcDNocmJNamdVdEVFYTNLS0ZDbitYVFRkMWwyQzJlclNWTUJqYk5TcHNlOXNaNitHZWoxQjgzb0dRbFFMRllKam9iaXJkMUlTWGdDSER4U2JxeTd2R3dDSWJMRm92cldQdXpQTlNMWmtYSndPeEpWalA1d1Z4ZWVOVzYxaSswN2lmMEw3b0lSME1heDNhZ2ZzS0JjRUdralNkWGpaL2hkL0hxNm14Vlk1WUFVZnRtZlkwNTF6ektsMEcwQnpjVExHTmtXY3VwNVNpcVhLdG5mT29YSStpbGN0YWkzVzlnWS9TS2l6QzlEUHhwR1Q4MmdXcTR3dlZXeXJIaEE1b0h5aGtIcHJ1dkQvYUI5VytyeXlheFhVZUlOZEsvNmQvcTRQUS9TQ0puQWF2NUhCK1VuSUEvYnYrdllDWUJ6RHpLREl2R2tFQmxveTJvQVE9PSBhZHJpYW5AbnVtYXgub3Jn","description":"mail@example.com"}'
 ```
 
 ```php
@@ -3905,7 +3680,11 @@ $response = $client->addSSHPublicKey($server,$domain,$keyBase64,$description);
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
 ```
 
 Add a SSH public key for a user.
@@ -3933,18 +3712,22 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/key" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"server","domain":"domain","keyMD5":"keyMD5"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","fingerprint":"43:36:fe:b7:55:76:22:41:f2:51:db:d3:4e:7f:08:ef"}'
 ```
 
 ```php
 /** @var $client \H4D\ApiClient\Client */
-$response = $client->deleteSSHPublicKey($server,$domain,$keyMD5);
+$response = $client->deleteSSHPublicKey($server,$domain,$fingerprint);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-null
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
 ```
 
 Delete a SSH public key.
@@ -3964,14 +3747,14 @@ domain | true | Hostname | string | - | -
 
 Parameter | Required | Description | Type | Values | Default value
 --------- | -------- | ----------- | ---- | ------ | --------------
-keyMD5 | true | Public key (md5) | string | - | -
+fingerprint | true | SSH key fingerprint | string | - | -
 ## Set SSH auth mode.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/auth-mode" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","mode":"onlyPublicKey"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","mode":"onlyPublicKey"}'
 ```
 
 ```php
@@ -4013,7 +3796,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/status"
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","status":"enable"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","status":"enable"}'
 ```
 
 ```php
@@ -4129,7 +3912,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssl-cert" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -4140,11 +3923,7 @@ $response = $client->getHostingSSLCertificateInformation($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 21703,
-    "message": "\"SSL Cert\" not exist!",
-    "data": []
-}
+null
 ```
 
 Get hosting SSL certificate information.
@@ -4166,7 +3945,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssl-cert/st
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"server","domain":"domain"}'
 ```
 
 ```php
@@ -4177,11 +3956,7 @@ $response = $client->getHostingSSLStatus($server,$domain);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 10000,
-    "message": "Success!",
-    "data": "disable"
-}
+null
 ```
 
 Get hosting SSL status.
@@ -4203,7 +3978,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssl-cert/st
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","status":"enable"}'
+-d '{"server":"server","domain":"domain","status":"status"}'
 ```
 
 ```php
@@ -4214,11 +3989,7 @@ $response = $client->setHostingSSLStatus($server,$domain,$status);
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "code": 21703,
-    "message": "\"SSL Cert\" not exist!",
-    "data": []
-}
+null
 ```
 
 Set hosting SSL status.
@@ -4242,10 +4013,10 @@ status | true | Status | enum | ["enable","disable"] | enable
 ## Change hosting process manager.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/process-manager" \
--X PATCH \
+-X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com","processManager":"php-5.6"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","processManager":"php-7"}'
 ```
 
 ```php
@@ -4267,7 +4038,7 @@ Change hosting process manager.
 
 ### HTTP Request
 
-`PATCH  /v1/server/:server/hosting/:domain/process-manager`
+`PUT  /v1/server/:server/hosting/:domain/process-manager`
 
 ### URL parameters
 
@@ -4287,7 +4058,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain" \
 -X DELETE \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-004","domain":"test-000.com"}'
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
 ```
 
 ```php
@@ -4318,6 +4089,580 @@ Parameter | Required | Description | Type | Values | Default value
 server | true | Server API ID | string | - | -
 domain | true | Hostname | string | - | -
 
+## Request and install Let's encrypt certificate.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/lets-encrypt" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","email":"mail@example.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->requestAndInstallLetsEncryptCertificate($server,$domain,$email);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": true
+}
+```
+
+Request and install Let's encrypt certificate.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/lets-encrypt`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+email | true | Email | string | - | -
+## Renew the Let's encrypt certificate.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/lets-encrypt" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->renewLetsEncryptCertificate($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 21740,
+    "message": "Certificate does not need renewal",
+    "data": []
+}
+```
+
+Renew the Let's encrypt certificate.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/hosting/:domain/lets-encrypt`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Get the Let's encrypt certificate status.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/lets-encrypt" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getLetsEncryptCertificateStatus($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "issuer": "Let's Encrypt Authority X3",
+        "domain": "example.com",
+        "fromDate": "2017-08-03 16:18:00",
+        "toDate": "2017-11-01 16:18:00"
+    }
+}
+```
+
+Get the Let's encrypt certificate status.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/lets-encrypt`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Get installed addons.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/addon" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getInstalledAddons($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "rainloop-1492363472": {
+            "id": "rainloop-1492363472",
+            "type": "rainloop",
+            "addonPath": "\/home\/example.com\/.addons\/rainloop-1492363472",
+            "publicPath": "\/home\/example.com\/htdocs\/webmail",
+            "options": {
+                "url": "example.com\/webmail\/"
+            },
+            "createdAt": "2017-04-16T17:24:35+0000"
+        },
+        "owncloud-1492364081": {
+            "id": "owncloud-1492364081",
+            "type": "owncloud",
+            "addonPath": "\/home\/example.com\/.addons\/owncloud-1492364081",
+            "publicPath": "\/home\/example.com\/htdocs\/own",
+            "options": {
+                "adminEmail": "edu@example.com",
+                "database": "ownc",
+                "dbUsername": "ownc",
+                "url": "example.com\/own\/"
+            },
+            "createdAt": "2017-04-16T17:35:05+0000"
+        }
+    }
+}
+```
+
+Get installed addons.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/addon`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Get available addons.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/addon/available" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getAvailableAddons($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": {
+        "owncloud": {
+            "name": "owncloud",
+            "publicName": "ownCloud",
+            "description": "ownCloud is an open source, self-hosted file sync and share app platform. Access & sync your files, contacts, calendars & bookmarks across your devices.",
+            "aditionalModules": [
+                "mysql"
+            ],
+            "url": "https:\/\/owncloud.org",
+            "license": "GPLv2",
+            "settings": [
+                "database",
+                "dbUsername",
+                "dbPassword",
+                "adminEmail",
+                "adminPassword"
+            ]
+        },
+        "wordpress": {
+            "name": "wordpress",
+            "publicName": "WordPress",
+            "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+            "aditionalModules": [
+                "mysql"
+            ],
+            "url": "https:\/\/wordpress.org",
+            "license": "AGPLv3",
+            "settings": [
+                "database",
+                "dbUsername",
+                "dbPassword",
+                "title",
+                "adminEmail",
+                "adminPassword"
+            ]
+        },
+        "rainloop": {
+            "name": "rainloop",
+            "publicName": "RainLoop Webmail",
+            "description": "RainLoop Webmail - Simple, modern & fast web-based email client.",
+            "aditionalModules": [],
+            "url": "https:\/\/www.rainloop.net",
+            "license": "AGPLv3",
+            "settings": []
+        },
+        "phpmyadmin": {
+            "name": "phpmyadmin",
+            "publicName": "phpMyAdmin",
+            "description": "A tool written in PHP intended to handle the administration of MySQL over the WWW.",
+            "url": "https:\/\/www.phpmyadmin.net",
+            "license": "GPLv2",
+            "aditionalModules": [],
+            "settings": []
+        }
+    }
+}
+```
+
+Get available addons to install in a hosting.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/addon/available`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Uninstall addon.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/addon/:addonId" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","domain":"domain","addonId":"addonId"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->uninstallAddon($server,$domain,$addonId);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Uninstall and remove a hosting addon.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/hosting/:domain/addon/:addonId`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+addonId | true | Addon identifier | string | - | -
+
+## Delete git deploy configuration.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/deploy/git" \
+-X DELETE \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","domain":"domain"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->deleteGitDeployConfig($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Delete git deploy configuration.
+
+### HTTP Request
+
+`DELETE  /v1/server/:server/hosting/:domain/deploy/git`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Get info about git deploy configuration and last execution.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/deploy/git" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","domain":"domain"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getGitDeployInfo($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Get info about git deploy configuration and last execution.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/deploy/git`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+## Configure git deploy.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/deploy/git" \
+-X PUT \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","domain":"domain","gitUrl":"gitUrl","gitBranch":"gitBranch","localPath":"localPath","deployScript":"deployScript","deployType":"deployType"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->createGitDeployConfig($server,$domain,$gitUrl,$gitBranch,$localPath,$deployScript,$deployType);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Configure git deploy.
+
+### HTTP Request
+
+`PUT  /v1/server/:server/hosting/:domain/deploy/git`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+gitUrl | true | Git URL (SSH not HTTP. Sample: git@github.com:vendor/repo.git) | string | - | -
+gitBranch | true | Git branch name | string | - | -
+localPath | true | Deploy path | string | - | -
+deployScript | true | Script | string | - | -
+deployType | true | Deploy type | enum | ["auto","manual"] | auto
+## Update git deploy configuration.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/deploy/git" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","domain":"domain","gitUrl":"gitUrl","gitBranch":"gitBranch","localPath":"localPath","deployScript":"deployScript","deployType":"deployType"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->updateGitDeployConfig($server,$domain,$gitUrl,$gitBranch,$localPath,$deployScript,$deployType);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Update git deploy configuration.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/deploy/git`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+gitUrl | false | Git URL (SSH not HTTP. Sample: git@github.com:vendor/repo.git) | string | - | -
+gitBranch | false | Git branch name | string | - | -
+localPath | false | Deploy path | string | - | -
+deployScript | false | Script | string | - | -
+deployType | false | Deploy type | enum | ["auto","manual"] | auto
+## Set web document root path.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/web/document-root" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","path":"www\/current\/public"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->setWebDocumentRoot($server,$domain,$path);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": "\/home\/example.com\/www\/current\/public"
+}
+```
+
+Set web document root path.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/web/document-root`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+path | true | Web document root | string | - | -
+## Generate a new SSH key and add it to the ssh-agent.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/key-gen" \
+-X POST \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"mYSeRvEr-Id","domain":"example.com","email":"mail@example.com"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->generateSSHKey($server,$domain,$email);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "code": 10000,
+    "message": "Success!",
+    "data": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD2zWbRD1doOgzOosRV1nzunHBrFLlUQZwKS+VnbL2J+Vv4fgzUGKb7dhq5s53Jg4uCVc2OM\/74fZWofsj8AUa6uRl\/ywiQLdzZYfPVhqjmRntcwvFOX\/QepZ3\/J37siUeRIJXiKOp731bXJov+jdWr6K03tvc6NwST+JxE7BgXaPUjnr5XcwCP5Xh9KD+oKoVGMKf+qbB1QeNowwYbHSEFxKxpjhN6QMWOjf1u\/3\/xjQkLjRA85T99Vq8rkPJ2V7QbruOCcywTrtE+ALeC47zLlzUH6dw\/C7uVZcSHUSUgAU0QaDppOzJeLKDSdN0G\/Qakxwm8DffMRgeP9dHhXNaB mail@example.com\n"
+}
+```
+
+Generate a new SSH key and add it to the ssh-agent.
+
+### HTTP Request
+
+`POST  /v1/server/:server/hosting/:domain/ssh/key-gen`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
+### Body parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+email | true | Email | string | - | -
+## Get SSH public key content.
+```shell
+curl "https://api.hosting4devs.com/v1/server/:server/hosting/:domain/ssh/key" \
+-X GET \
+-u apiUser:apiPassword \
+-H "Content-Type: application/json"\
+-d '{"server":"server","domain":"domain"}'
+```
+
+```php
+/** @var $client \H4D\ApiClient\Client */
+$response = $client->getSSHPublicKey($server,$domain);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+null
+```
+
+Get SSH public key content.
+
+### HTTP Request
+
+`GET  /v1/server/:server/hosting/:domain/ssh/key`
+
+### URL parameters
+
+Parameter | Required | Description | Type | Values | Default value
+--------- | -------- | ----------- | ---- | ------ | --------------
+server | true | Server API ID | string | - | -
+domain | true | Hostname | string | - | -
+
 #Recipes
 ## Get available recipes.
 ```shell
@@ -4325,7 +4670,7 @@ curl "https://api.hosting4devs.com/v1/server/:server/available-recipes" \
 -X GET \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012"}'
+-d '{"server":"mYSeRvEr-Id"}'
 ```
 
 ```php
@@ -4337,93 +4682,9 @@ $response = $client->getAvailableRecipes($server);
 
 ```json
 {
-    "code": 10000,
-    "message": "Success!",
-    "data": [
-        {
-            "recipe": "apache",
-            "description": "Apache web server",
-            "isAvailableToInstall": true,
-            "packages": [
-                "apache"
-            ]
-        },
-        {
-            "recipe": "apache-itk",
-            "description": "Apache web server with ITK MPM @deprecated",
-            "isAvailableToInstall": true,
-            "packages": [
-                "apache-itk"
-            ]
-        },
-        {
-            "recipe": "mail",
-            "description": "Mail recipe: postfix, dovecot and spamassassin",
-            "isAvailableToInstall": true,
-            "packages": [
-                "postfix",
-                "dovecot",
-                "spamassassin"
-            ]
-        },
-        {
-            "recipe": "mysql",
-            "description": "MySQL Server",
-            "isAvailableToInstall": true,
-            "packages": [
-                "mysql"
-            ]
-        },
-        {
-            "recipe": "nginx",
-            "description": "Nginx server",
-            "isAvailableToInstall": true,
-            "packages": [
-                "nginx"
-            ]
-        },
-        {
-            "recipe": "quota",
-            "description": "Quota packages",
-            "isAvailableToInstall": true,
-            "packages": [
-                "quota"
-            ]
-        },
-        {
-            "recipe": "ssh-ftp",
-            "description": "VSFTP and SSH configuration",
-            "isAvailableToInstall": false,
-            "packages": [
-                "ftp",
-                "ssh"
-            ]
-        },
-        {
-            "recipe": "php-5.5",
-            "description": "PHP 5.5 \"Full equip\"",
-            "isAvailableToInstall": true,
-            "packages": [
-                "php5.5-fpm"
-            ]
-        },
-        {
-            "recipe": "php-5.6",
-            "description": "PHP 5.6 \"Full equip\"",
-            "isAvailableToInstall": true,
-            "packages": [
-                "php5.6-fpm"
-            ]
-        },
-        {
-            "recipe": "php-7",
-            "description": "PHP 7 \"Full equip\"",
-            "isAvailableToInstall": false,
-            "packages": [
-                "php7-fpm"
-            ]
-        }
-    ]
+    "code": 50006,
+    "message": "Installation in progress",
+    "data": []
 }
 ```
 
@@ -4505,46 +4766,13 @@ server | true | Server API ID | string | - | -
 token | true | Recipes API token | string | - | -
 recipe | true | Recipe's name | string | - | -
 
-## Mark a snippet execution as viewed.
-```shell
-curl "https://api.hosting4devs.com/v1/server/:server/snippet/:token/viewed" \
--X PUT \
--u apiUser:apiPassword \
--H "Content-Type: application/json"\
--d '{"server":"server","token":"token"}'
-```
-
-```php
-/** @var $client \H4D\ApiClient\Client */
-$response = $client->markSnippetExecutionAsViewed($server,$token);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-null
-```
-
-Mark a snippet execution as viewed.
-
-### HTTP Request
-
-`PUT  /v1/server/:server/snippet/:token/viewed`
-
-### URL parameters
-
-Parameter | Required | Description | Type | Values | Default value
---------- | -------- | ----------- | ---- | ------ | --------------
-server | true | Server API ID | string | - | -
-token | true | Snippet token | string | - | -
-
 ## Install recipes.
 ```shell
 curl "https://api.hosting4devs.com/v1/server/:server/install" \
 -X PUT \
 -u apiUser:apiPassword \
 -H "Content-Type: application/json"\
--d '{"server":"lnqlqx-012","recipes":["apache"]}'
+-d '{"server":"mYSeRvEr-Id","recipes":["mail"]}'
 ```
 
 ```php
@@ -4558,7 +4786,7 @@ $response = $client->installRecipes($server,$recipes);
 {
     "code": 10000,
     "message": "Success!",
-    "data": "9a4859dfc5ec48475f5cf3b02536216c"
+    "data": "af994cbd5d395803c8d58c0c8353a8d2"
 }
 ```
 
